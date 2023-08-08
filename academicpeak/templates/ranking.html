@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta name="google-site-verification" content="1wRpMJDdVYT9I-j7zgSXh-ZnMtxsTd13FkkwUkXDOCA" />
+    <meta charset="UTF-8">
+    <title>Academic Peak Global Universities Ranking 2024</title>
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+    <link rel="icon" href="{% static 'img/Academic Peak Logo web.svg' %}">
+</head>
+<body>
+<!-- 头部和标志 -->
+<div class="top_blue"></div>
+<img class="logo" src="{% static 'img/Academic Peak Logo CB.png' %}"/>
+
+<!-- 文字标题 -->
+<div class="web_info_background_gray">
+    <h1 class="h1_text">2024 Best Global Universities Rankings</h1>
+</div>
+
+<!-- 排名 -->
+{% for key, university in universities_rank.items %}
+    <div class="university-rank-container">
+        <img class="university_photo" src="/static/img/universities/{{ university.Photo_Link }}" alt="university photo">
+
+        <div style="university_info_container">
+            <div class="university_name">
+                <a href="{{ university.Link }}">{{ university.University_Name }}</a>
+            </div>
+            <div class="country">{{ university.Country }}</div>
+            <div class="rank_info">
+                # {{ university.Rank }} in Best Global Universities
+            </div>
+            <div class="global_score">Global Score: {{ university.Global_Score }}</div>
+            <div class="enrollment">Enrollment: {{ university.Enrollment }}</div>
+        </div>
+    </div>
+{% endfor %}
+</body>
+</html>

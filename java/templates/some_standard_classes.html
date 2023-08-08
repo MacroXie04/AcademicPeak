@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Standard Classes</title>
+    <link rel="stylesheet" href="{% static 'css/some_standard_classes.css' %}">
+</head>
+<body>
+<article id="95c5f5c4-a1f4-4684-aad5-f5177702200e" class="page sans"><header><h1 class="page-title">Some Standard Classes</h1><p class="page-description"></p></header><div class="page-body"><h3 id="c17c33e4-0ef7-4efb-aa7f-ecb3cdf37d01" class="">The <strong>object </strong>class</h3><p id="1da6aa3e-fe35-4453-9c98-548f9fb31a90" class="">The <strong>object</strong> class is the root of the class hierarchy. Every class in Java has <strong>object </strong>as a superclass, either directly or indirectly. If you don&#x27;t explicitly specify a superclass for a class, it will automatically extend the <strong>object </strong>class. </p><ul id="2113f813-14f0-4c27-858e-75bb5d9c2687" class="bulleted-list"><li style="list-style-type:disc"><strong>toString()</strong></li></ul><pre id="e7db2b7b-e433-4b24-8bc2-e989808fb992" class="code"><code>//Example
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 如果不重写toString()方法，输出的是对象的内存地址
+    //Override toString()
+		public String toString() {
+        return &quot;Person{name=&#x27;&quot; + name + &quot;&#x27;, age=&quot; + age + &quot;}&quot;;
+    }
+}
+
+class mian{
+    public static void main(String[] args) {
+        Person person = new Person(&quot;Alice&quot;, 30);
+        System.out.println(person);
+        // 输出: Person{name=&#x27;Alice&#x27;, age=30}
+    }
+}</code></pre><ul id="3ec259ff-1c89-448a-ae96-0d49207f4c9f" class="bulleted-list"><li style="list-style-type:disc"><strong>equal()</strong></li></ul><p id="ac37dcf9-bfc0-4db1-acb8-04cbfe2c2aeb" class=""><strong>Do not use == to test objects for equality. Ues equals methods.</strong></p><pre id="4a18b775-3f24-4c74-8199-0ddf31b987ce" class="code"><code>class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+		// 如果不重写equal()方法，比较的是对象的内存地址
+		//override equal()
+		public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Person)) {
+            return false;
+        }
+        Person p = (Person) o;
+        return p.name.equals(name) &amp;&amp; p.age == age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person1 = new Person(&quot;Alice&quot;, 30);
+        Person person2 = new Person(&quot;Alice&quot;, 30);
+        Person person3 = person1;
+
+        System.out.println(person1.equals(person2));
+				// false
+        System.out.println(person1.equals(person3));
+				// true
+    }
+}</code></pre><h3 id="513dc2d9-5443-491d-a0c0-bf360c293b15" class="">The String class</h3><p id="d1445d6a-f8dc-4a3c-a7a2-a14f6a1dd8d1" class="">The String class in Java represents a sequence of characters (String). It is part of the java.lang package, which means it is auto magically imported and does not need an explicit import statement.</p><p id="96a151a5-f6c9-43ea-9d4a-d161eed31ed5" class=""><strong>String objects in Java are immutable, meaning that once String object is created, its content cannot be changed.</strong></p><pre id="4f0a4fa9-a492-428b-9c89-99957eeee72f" class="code"><code>//Example
+// Create new String
+String str1 = &quot;Hello, World!&quot;;
+String str2 = new String(&quot;Hello, World!&quot;);
+char[] charArray = {&#x27;H&#x27;,&#x27;E&#x27;,&#x27;L&#x27;,&#x27;L&#x27;,&#x27;O&#x27;,};
+String str3 = new String(chatArray);
+
+//String puls String
+String str1 = &quot;Hello&quot;;
+String str2 = &quot;World&quot;;
+String result = str1 + &quot;, &quot; + str2 + &quot;!&quot;;
+System.out.println(result);
+// Hello, World!
+System.out.println(3+4+str1);
+// 7Hello
+Ststem.out.println(Str1+3+4);
+// Hello34</code></pre><h3 id="b001c181-f749-4f9c-8903-7657810f533f" class="">subString</h3><ol type="1" id="82ff91f6-bcce-4853-8993-877e41833886" class="numbered-list" start="1"><li><code><strong>substring(int beginIndex)</strong></code>: Returns a new string that is a substring of the original string starting from the specified <code><strong>beginIndex</strong></code> to the end of the original string.</li></ol><ol type="1" id="b553f580-a4f0-4760-9b22-a0de936f82ca" class="numbered-list" start="2"><li><code><strong>substring(int beginIndex, int endIndex)</strong></code>: Returns a new string that is a substring of the original string starting from the specified <code><strong>beginIndex</strong></code> up to, but not including, the character at index <code><strong>endIndex</strong></code>. The character at index <code><strong>endIndex</strong></code> is not included in the resulting substring.</li></ol><pre id="c3b03fd2-8a08-4fe9-af75-2f96c8cd251f" class="code"><code>String original = &quot;Hello,World!&quot;;
+//index:H(1)e(2)l(3)l(4)o(5),(6)W(7)o(8)r(9)l(10)d(11)!(12)
+
+String sub1 = original.substring(0, 5);
+// Extracts characters from index 0 to 4
+System.out.println(sub1);
+// Output: Hello
+
+String sub2 = original.substring(7);
+// Extracts characters from index 7 to the end
+System.out.println(sub2);
+// Output: World!
+
+String sub3 = original.substring(0, original.length());
+System.out.println(sub3);
+// Output: Hello, World!
+</code></pre><h2 id="17761bb0-1fa8-44f0-9d81-7c105f778cc4" class="">String.equal</h2><p id="9cd23919-cebb-45e8-83d9-f623c4e0447a" class="">The <code><strong>equals()</strong></code> method of the <code><strong>String</strong></code> class is used to compare whether the contents of two string objects are equal.</p><pre id="40b9ed20-fbb3-466c-ba9f-c0bae74ddce5" class="code"><code>String str1 = &quot;Hello, World!&quot;;
+String str2 = &quot;Hello, World!&quot;;
+String str3 = &quot;hello, world!&quot;;
+
+// 使用 equals() 方法比较字符串
+boolean isEqual1 = str1.equals(str2);
+System.out.println(isEqual1);
+// true
+
+boolean isEqual2 = str1.equals(str3);
+System.out.println(isEqual2);
+// false 大小写不一样
+
+// 使用equalsIgnoreCase() 方法比较字符串，忽略大小写
+boolean isEqualIgnoreCase = str1.equalsIgnoreCase(str3);
+System.out.println(isEqualIgnoreCase);
+// true</code></pre><h3 id="923172ab-c69b-456a-9181-8095af7ed370" class="">String indexOf</h3><ol type="1" id="d2b3507f-5ff7-4b45-a9ff-530532fab780" class="numbered-list" start="1"><li>This method takes a single argument, which is a character. It returns the index of the first occurrence of that character in the string, or -1 if the character is not found.</li></ol><ol type="1" id="b4022f5b-c51e-4f74-8d01-9cecb9910851" class="numbered-list" start="2"><li>This method takes a single argument, which is a substring. It returns the index of the first occurrence of that substring in the string, or -1 if the substring is not found.</li></ol><pre id="2ec00c73-2999-4710-a2bb-4f7ac0183138" class="code"><code>//Example
+String str = &quot;Hello World&quot;;
+int index = str.indexOf(&#x27;o&#x27;);
+System.out.println(index);
+// Output: 4
+
+String str = &quot;Hello World&quot;;
+int index = str.indexOf(&quot;World&quot;);
+System.out.println(index);
+// Output: 6
+
+String str = &quot;Hello World&quot;;
+// Start search at index 5
+int index = str.indexOf(&#x27;o&#x27;, 5);
+System.out.println(index);
+// Output: 7</code></pre><h3 id="692ab07b-571c-4c5e-85db-54886442412a" class="">The Integer and Double class</h3><p id="f9080590-45e8-4e61-b3e8-e70a96fb82f0" class="">The Integer and Double class are part of java.lang package and are used to represent numerical values as object.</p><pre id="046e257a-d5ce-46a8-b225-ef9cb6c9db30" class="code"><code>//Example
+
+// Creating Integer objects
+Integer a = new Integer(10);
+Integer b = Integer.valueOf(&quot;20&quot;);
+
+// Arithmetic operations using Integer objects
+int sum = a + b; // sum = 30
+int difference = a - b; // difference = -10
+int product = a * b; // product = 200
+int quotient = b / a; // quotient = 2
+
+// Creating Double objects
+Double c = new Double(3.14);
+Double d = Double.valueOf(&quot;2.718&quot;);
+
+// Arithmetic operations using Double objects
+double sumD = c + d; // sumD = 5.858
+double differenceD = c - d; // differenceD = 0.422
+double productD = c * d; // productD = 8.53752
+double quotientD = c / d; // quotientD = 1.1552056555269922
+
+int a = 10;
+Integer b = a; // Autoboxing
+int c = b; // Autounboxingffv</code></pre><h3 id="956b419a-93dd-483e-b738-ea298dfccf41" class="">Math Functions</h3><pre id="68a39aaf-a7b4-4a62-bd77-eb99f0d71cd2" class="code"><code>public class MathExamples {
+    public static void main(String[] args) {
+        // 1. 计算绝对值
+        int a = -5;
+        int absA = Math.abs(a);
+        System.out.println(&quot;绝对值: &quot; + absA);
+
+        // 2. 向上取整
+        double b = 3.6;
+        double ceilB = Math.ceil(b);
+        System.out.println(&quot;向上取整: &quot; + ceilB);
+
+        // 3. 向下取整
+        double floorB = Math.floor(b);
+        System.out.println(&quot;向下取整: &quot; + floorB);
+
+        // 4. 四舍五入
+        double c = 7.5;
+        long roundC = Math.round(c);
+        System.out.println(&quot;四舍五入: &quot; + roundC);
+
+        // 5. 计算最大值
+        int max = Math.max(a, (int) c);
+        System.out.println(&quot;最大值: &quot; + max);
+
+        // 6. 计算最小值
+        int min = Math.min(a, (int) c);
+        System.out.println(&quot;最小值: &quot; + min);
+
+        // 7. 计算幂运算
+        double pow = Math.pow(2, 3);
+        System.out.println(&quot;2 的 3 次方: &quot; + pow);
+
+        // 8. 生成随机数
+        double random = Math.random();
+        System.out.println(&quot;随机数: &quot; + random);
+    }
+}</code></pre></div></article></body></html>

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursion</title>
+    <link rel="stylesheet" href="{% static 'css/recursion.css' %}">
+</head>
+<body>
+<article id="170ba54b-fc2f-4312-bfa9-2199e1c52e92" class="page sans"><header><h1 class="page-title">Recursion</h1><p class="page-description"></p></header><div class="page-body"><p id="d89ea888-c907-4897-bff6-e87b4a8ad919" class="">Recursion is a programming technique in which a function calls itself one or more times to solve a problem. It is a powerful and versatile tool that can be used to solve a wide range of problems, from simple mathematical computations to complex data structures and algorithms.</p><p id="f979133e-83f1-406d-a356-fde3c34b139b" class="">To use recursion, a function typically checks if a specific termination condition has been met, and if not, the function calls itself with a modified set of parameters until the termination condition is met. This creates a stack of function calls, with each new call being added to the top of the stack, until the termination condition is met and the stack is &quot;unwound&quot; as each function call returns.</p><pre id="d22a03a0-251d-4e4d-bfa6-4e8e72874f4b" class="code"><code>public static int factorial(int n) {
+    if (n == 0) {
+        return 1;
+				// Termination condition
+    } else {
+        return n * factorial(n-1); // Recursive call
+    }
+}</code></pre><p id="a1484a83-a96a-4e39-bd5c-98f84d87e8d8" class="">In this function, if the input <code><strong>n</strong></code> is 0, the function returns 1 (the termination condition). Otherwise, the function calls itself with <code><strong>n-1</strong></code> as the input, and multiplies the result with <code><strong>n</strong></code>. This process continues until the input reaches 0, at which point the function returns the final result.</p><p id="36a9516c-9d7b-46a4-8c1d-3cc56cab2c3a" class="">Recursion can be a powerful and elegant solution to many problems, but it can also be a source of bugs and performance issues if not used carefully. Careful consideration should be given to the termination conditions, the base case, and the recursive call to ensure that the function returns the correct result and does not result in an infinite loop or excessive memory usage.</p></div></article></body></html>

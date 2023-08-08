@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/translate.css' %}">
+    <title>Translator</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" class="translation-form">
+            {% csrf_token %}
+            <label for="source_text">请在此键入翻译文本（文本语言将自动识别）：</label><br>
+            <textarea name="source_text" rows="4" cols="50">{{ request.POST.source_text }}</textarea><br><br>
+            <button type="button" id="clearBtn">清空</button>
+            <button type="submit">翻译</button>
+        </form>
+        {% if translated_text %}
+        <div class="translation-result">
+            <p>{{ translated_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+
+    <script>
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            document.getElementsByName('source_text')[0].value = '';
+        });
+
+    </script>
+</body>
+</html>

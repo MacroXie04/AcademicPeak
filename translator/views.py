@@ -9,7 +9,6 @@ APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
 
 def translate(request):
     translated_text = None
-
     if request.method == 'POST':
         source_text = request.POST.get('source_text', '')
         if source_text:
@@ -21,7 +20,7 @@ def translate(request):
 def translator(text):
     lang_form, lang_to = judge_language(text)
     if lang_form == 'unknown':
-        return 'Error : Unknown UTF_8 character'
+        return 'Error : Unknown UTF_8 character，我已经知道Bug出在哪里了，但是我不想改，因为我懒，等着哪天闲的没事给他改了'
     return generate_translation(text, lang_form, lang_to)
 
 

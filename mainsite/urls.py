@@ -5,7 +5,7 @@ from mainsite import views
 
 
 urlpatterns = [
-    path('', views.mainpage),
-    path('about/', views.about),
-    path('love/', views.love),
+    path('', views.mainpage, name='mainpage'),
+    path('about/', views.about, name='about'),
+    path('love/', views.love, name='love'),
 ]

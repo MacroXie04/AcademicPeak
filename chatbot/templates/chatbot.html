@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var csrfToken = '{{ csrf_token }}';
+
+        $(document).ready(function() {
+            $('#send-button').click(function() {
+                var inputText = $('#input-text').val();
+                $('#chat-log').append('<div>User_input: ' + inputText + '</div>');
+
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    data: {
+                        input_text: inputText,
+                        csrfmiddlewaretoken: csrfToken
+                    },
+                    success: function(data) {
+                        $('#chat-log').append('<div>Chatbot: ' + data.response + '</div>');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+                $('#input-text').val('');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="chat-container">
+        Use Open AI's GPT-3 API to chat with a chatbot. Type in a message and press send to get a response. 现阶段因为部署在腾讯云的关系所以无法使用！
+    </div>
+    <div id="chat-container">
+        <div id="chat-log"></div>
+        <div id="user-input">
+            <input type="text" id="input-text">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    {% csrf_token %}
+</body>
+</html>

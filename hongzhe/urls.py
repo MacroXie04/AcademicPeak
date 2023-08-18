@@ -23,5 +23,8 @@ urlpatterns = [
     path('academicpeak/', include('academicpeak.urls')),
     path('translator/', include('translator.urls')),
     path('java/', include('java.urls')),
+    path('chatbot/', include('chatbot.urls')),
+    path('csgo/', include('csgo.urls')),
+    path('file_manager/', include('file_manager.urls')),
 ]
 

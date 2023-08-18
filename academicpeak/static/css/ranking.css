@@ -11,7 +11,7 @@
     margin-bottom: 5px;
     width: 80%;
     max-width: 800px;
-
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .web_info_background_gray {
@@ -25,11 +25,13 @@
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .h1_text {
     font-size: 40px;
     flex: 1;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 /* for 循环生成部分css */
@@ -38,6 +40,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .university-rank-container {
@@ -51,7 +54,7 @@ body {
 
 .university_photo {
     width: 200px;
-    height: 200px;
+    height: 210px;
     object-fit: cover;
 }
 
@@ -64,11 +67,12 @@ body {
 
 .university_name {
     margin-left: 15px;
-    margin-top: 10px;
+    margin-top: 13px;
     font-size: 40px;
     font-weight: bold;
     color: #333;
     margin-bottom: 8px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .university_name a {
@@ -81,27 +85,29 @@ body {
     font-size: 20px;
     color: #666;
     margin-bottom: 5px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .rank_info {
     margin-left: 20px;
-    font-size: 25px;
+    font-size: 30px;
     color: #666;
     margin-bottom: 5px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .global_score {
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 25px;
     color: #666;
     margin-bottom: 3px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .enrollment {
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 25px;
     color: #666;
     margin-bottom: 15px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
-
-

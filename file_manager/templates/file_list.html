@@ -1,0 +1,18 @@
+<!-- file_manager/templates/file_manager/file_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uploaded Files</title>
+</head>
+<body>
+    <h1>Uploaded Files</h1>
+    <ul>
+        {% for file in files %}
+            <li><a href="{% url 'download_file' file.id %}">{{ file.file.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_file' %}">Upload a File</a>
+</body>
+</html>

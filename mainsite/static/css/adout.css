@@ -4,10 +4,12 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 .container {
     font-size: 20px;
     margin: 40px 5%;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 .c2 {
@@ -16,6 +18,7 @@
     width: 200px;
     padding: 0;
     margin: 300px auto 100px;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 
@@ -29,6 +32,7 @@ img {
     font-size: 20px;
     margin-left: 3%;
     margin-right: 0;
+    font-family: "Microsoft YaHei", sans-serif;
 }
 
 p {

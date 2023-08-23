@@ -14,6 +14,10 @@ def academic_peak_university_ranking(request):
     return render(request, 'academicpeak_ranking.html', {'universities_rank': universities_rank})
 
 
+def academic_peak_fairness(request):
+    return render(request, 'academicpeak_fairness.html')
+
+
 def academic_peak_contact(request):
     return render(request, 'academicpeak_contact.html')
 

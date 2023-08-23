@@ -8,5 +8,6 @@ urlpatterns = [
     path('ranking/', views.academic_peak_university_ranking, name='academic_peak_university_ranking'),
     path('about/', views.academic_peak_about, name='academic_peak_about'),
     path('contact/', views.academic_peak_contact, name='academic_peak_contact'),
+    path('fairness/', views.academic_peak_fairness, name='academic_peak_fairness'),
 
 ]

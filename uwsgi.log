@@ -12970,3 +12970,9 @@ spawned uWSGI worker 4 (pid: 89749, cores: 2)
 [pid: 89746|app: 0|req: 2/9] 114.254.0.159 () {40 vars in 704 bytes} [Sat Aug  5 11:37:35 2023] GET /about/ => generated 2794 bytes in 1 msecs (HTTP/1.1 200) 6 headers in 208 bytes (1 switches on core 1)
 [pid: 89749|app: 0|req: 5/10] 114.254.0.159 () {40 vars in 704 bytes} [Sat Aug  5 11:48:46 2023] GET /about/ => generated 2794 bytes in 1 msecs (HTTP/1.1 200) 6 headers in 208 bytes (1 switches on core 0)
 [pid: 89749|app: 0|req: 6/11] 114.254.0.159 () {40 vars in 704 bytes} [Sat Aug  5 11:52:13 2023] GET /about/ => generated 2794 bytes in 1 msecs (HTTP/1.1 200) 6 headers in 208 bytes (1 switches on core 1)
+...brutally killing workers...
+Gracefully killing worker 3 (pid: 1619)...
+Gracefully killing worker 1 (pid: 1617)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds

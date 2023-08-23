@@ -18,13 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('mainsite.urls')),
+    path('admin/', admin.site.urls),
     path('academicpeak/', include('academicpeak.urls')),
     path('translator/', include('translator.urls')),
     path('java/', include('java.urls')),
     path('chatbot/', include('chatbot.urls')),
-    path('csgo/', include('csgo.urls')),
-    path('file_manager/', include('file_manager.urls')),
+
 ]
 

@@ -9,8 +9,11 @@
 >uwsgi --reload uwsgi.pid
 ## Reload nginx
 >nginx -s reload
+## Start nginx
+>sudo nginx
+## Stop nginx
+>sudo nginx -s stop
 ## Start web server
->nginx
 >uwsgi --ini uwsgi.ini
 ## Stop web server
 >uwsgi --stop uwsgi.pid

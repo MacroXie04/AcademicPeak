@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'translator.apps.TranslatorConfig',
     'java.apps.JavaConfig',
     'chatbot.apps.ChatbotConfig',
-    'csgo.apps.CsgoConfig',
-    'file_manager.apps.FileManagerConfig',
 
     # Django apps
     'django.contrib.admin',
@@ -88,13 +86,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hongzhe.wsgi.application'
 
 NOTEBOOK_ROOT = 'jupyternotebook/notebook.ipynb'
-
-# Media
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -141,8 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-
-
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}About Academic Peak{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="A new design system for developing with less effort.">
+    <meta name="author" content="BootstrapBay">
+
+
+    <link href="{% static 'img/Academic Peak Logo web.svg' %}" rel="icon" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lazy.css' %}">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
+          integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+</head>
+<body class="index">
+
+
+<div style="background-color: #221f1f !important; padding: 2rem 0rem 1rem !important;"
+     class="page-hero bg-primary text-white" id="banner">
+    <div class="bubbles d-none d-md-block">
+
+        <div class="bubble bubble-1 rotate-bubble bg-warning"></div>
+        <div class="bubble bubble-2 bubble-bottom-right bg-danger rotate-bubble"></div>
+        <div class="bubble bubble-3 bubble-top-right bg-warning rotate-bubble"></div>
+        <div class="bubble bubble-4 bubble-top-left bg-info rotate-bubble"></div>
+        <div class="bubble bubble-5 bg-info rotate-bubble"></div>
+        <div class="bubble bubble-6 bubble-bottom-right bg-danger rotate-bubble"></div>
+        <div class="bubble bubble-7 bubble-top-right bg-success rotate-bubble"></div>
+        <div class="bubble bubble-8 bubble-top-left bg-success rotate-bubble"></div>
+        <div class="bubble bubble-9 bg-warning rotate-bubble"></div>
+        <div class="bubble bubble-10 bg-danger rotate-bubble"></div>
+        <div class="bubble bubble-11 bubble-bottom-right bg-info rotate-bubble"></div>
+        <div class="bubble bubble-12 bubble-top-right bg-success rotate-bubble"></div>
+        <div class="bubble bubble-13 bubble-top-left bg-success rotate-bubble"></div>
+
+        <div class="circle circle-1 bg-light rotate-circle"></div>
+        <div class="circle circle-2 bg-success rotate-circle"></div>
+        <div class="circle circle-3 bg-danger rotate-circle"></div>
+        <div class="circle circle-4 bg-info rotate-circle"></div>
+        <div class="circle circle-5 bg-success rotate-circle"></div>
+        <div class="circle circle-6 bg-info rotate-circle"></div>
+        <div class="circle circle-7 bg-warning rotate-circle"></div>
+        <div class="circle circle-8 bg-white rotate-circle"></div>
+        <div class="circle circle-9 bg-warning rotate-circle"></div>
+        <div class="circle circle-10 bg-danger rotate-circle"></div>
+    </div>
+    <div class="container">
+        <div class="emoji mb-3">
+            <img src="{% static 'img/Academic Peak Logo CB.png' %}" width="300px">
+        </div>
+    </div>
+</div>
+{% block content %}
+<div class="intro bg-light">
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header">
+                        <h2 id="modals">About Academic Peak</h2>
+                        <p>"Are you navigating the maze of higher education options? Look no further than
+                            Academic Peak. It's not just another ranking site; it's a comprehensive guide that combines
+                            fairness, global recognition, and cutting-edge data analytics. Whether you're a student
+                            aiming for the best or an academician seeking insights, Academic Peak offers a holistic view
+                            of universities worldwide. Trust me, it's the ultimate compass for your academic
+                            journey!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header">
+                        <h2 id="modals">Standaed for evaluation</h2>
+                        <p>As Academic Peak, we are well aware of the importance of fair evaluation and ranking of
+                            universities for students. There are strict scoring standards for universities in Academic
+                            Peak
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+            <p class="lead"><b># Fairness in Evaluation:</b> At Academic Peak, our 2024 University Rankings have been
+                crafted with utmost precision, ensuring that every institution is judged on a level playing field.
+                Through objective metrics and transparent methodologies, we guarantee fairness in every ranking.</p>
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+            <p class="lead"><b># Highly Recognized:</b> Our rankings are not just numbers; they are stamps of excellence
+                recognized globally. With endorsements from educational bodies and trust from thousands of students,
+                Academic Peak's 2024 rankings set the gold standard in higher education assessment.</p>
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+            <p class="lead"><b># Innovative Data Integration:</b> In this year's rankings, we've incorporated innovative
+                data sources and feedback mechanisms, blending traditional assessment methods with modern analytics.
+                This allows us to capture the evolving dynamics of global education, making our list more comprehensive
+                and relevant than ever before.</p>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="glassAnimals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Here is a modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Modals are a simple way to display information upon request. They let you easily add another layer upon
+                your site and give you the possibility to create popups.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">View More</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<footer class="footer-1 bg-light text-dark">
+    <div class="container">
+        <div class="copyright text-center">
+            <hr/>
+            <p class="small">&copy; 2023, By Hongzhe <a
+                    target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
+                    title="中华人民共和国工业和信息化部要求公布内容">京ICP备2023015619号-1</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="./assets/vendor/jquery/jquery.min.js"></script>
+<script src="./assets/vendor/popper/popper.min.js"></script>
+<script src="./assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- optional plugins -->
+<script src="./assets/vendor/nouislider/js/nouislider.min.js"></script>
+
+<!--   lazy javascript -->
+<script src="./assets/js/lazy.js"></script>
+</body>
+</html>

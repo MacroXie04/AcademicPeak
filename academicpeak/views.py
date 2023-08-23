@@ -3,15 +3,23 @@ from django.shortcuts import HttpResponse
 from django.core.cache import cache
 from academicpeak.models import University
 from . import database
-# Create your views here.
 
-"""def mainpage(request):
-    return render(request, 'google73e971ce68cd61bd.html')
-"""
 
-def mainpage(request):
+def academic_peak_mainpage(request):
+    return render(request, 'academicpeak_mainpage.html')
+
+
+def academic_peak_university_ranking(request):
     universities_rank = cache_university_ranking()
-    return render(request, 'ranking.html', {'universities_rank': universities_rank})
+    return render(request, 'academicpeak_ranking.html', {'universities_rank': universities_rank})
+
+
+def academic_peak_contact(request):
+    return render(request, 'academicpeak_contact.html')
+
+
+def academic_peak_about(request):
+    return render(request, 'academicpeak_about.html')
 
 
 def cache_university_ranking():

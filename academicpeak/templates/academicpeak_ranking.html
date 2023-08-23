@@ -1,29 +1,42 @@
-{% extends 'academicpeak_about.html' %}
-
-{% block title %}
-    Academic Peak 2024 World University Rankings
-{% endblock %}
-
-{% block content %}
-<div class="intro bg-light">
-
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="header">
-                        <h2 id="modals">Standaed for evaluation</h2>
-                        <p>As Academic Peak, we are well aware of the importance of fair evaluation and ranking of
-                            universities for students. There are strict scoring standards for universities in Academic
-                            Peak
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta name="google-site-verification" content="1wRpMJDdVYT9I-j7zgSXh-ZnMtxsTd13FkkwUkXDOCA" />
+    <meta charset="UTF-8">
+    <title>Academic Peak Global Universities Ranking 2024</title>
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+    <link rel="icon" href="{% static 'img/Academic Peak Logo web.svg' %}">
+</head>
+<body>
+<!-- head -->
+<div class="top_blue">
+    <img class="logo" src="{% static 'img/Academic Peak Logo CB.png' %}"/>
 </div>
-{% endblock %}
+
+
+<!-- title -->
+<div class="web_info_background_gray">
+    <h1 class="h1_text">2024 Best Global Universities Rankings</h1>
+</div>
+
+<!-- ranking info generate by django for loop -->
+{% for key, university in universities_rank.items %}
+    <div class="university-rank-container">
+        <img class="university_photo" src="/static/img/universities/{{ university.Photo_Link }}" alt="university photo">
+
+        <div style="university_info_container">
+            <div class="university_name">
+                <a href="{{ university.Link }}">{{ university.University_Name }}</a>
+            </div>
+            <div class="country">{{ university.Country }}</div>
+            <div class="rank_info">
+                # {{ university.Rank }} in Best Global Universities
+            </div>
+            <div class="global_score">Global Score: {{ university.Global_Score }}</div>
+            <div class="enrollment">Enrollment: {{ university.Enrollment }}</div>
+        </div>
+    </div>
+{% endfor %}
+</body>
+</html>

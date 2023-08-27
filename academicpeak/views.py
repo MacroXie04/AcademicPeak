@@ -1,6 +1,6 @@
 import requests
 import os
-import markdown2
+import markdown
 from academicpeak.Translate.AuthV3Util import addAuthParams
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
@@ -18,19 +18,18 @@ def cache_university_ranking():
         cache.set('universities_rank', universities_rank, timeout=None)
     return universities_rank
 
-
 def display_markdown(request, file_name):
     markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', file_name)
-    markdown_file_path = r'C:\Users\xieho\PycharmProjects\hongzhe.site\academicpeak\static\markdown\test.md'
+    markdown_file_path = r'C:\Users\xieho\PycharmProjects\hongzhe.site\academicpeak\static\markdown\CSA\test.md'
     print(markdown_file_path)
     if os.path.exists(markdown_file_path) and markdown_file_path.endswith('.md'):
         with open(markdown_file_path, 'r', encoding='utf-8') as f:
             markdown_content = f.read()
-            markdown_content = markdown2.markdown(markdown_content)
-            return render(request, 'academicpeak_md.html', {'markdown_content': markdown_content})
+            markdown_content = markdown.markdown(markdown_content)
+            return render(request, 'academicpeak_markdown.html', {'markdown_content': markdown_content})
     else:
         print('Error: File not found.')
-        return render(request, 'academicpeak_md.html')
+        return render(request, 'academicpeak_markdown.html')
 
 def translate(request):
     translated_text = None
@@ -86,7 +85,6 @@ def academic_peak_legal(request):
 def academic_peak_university_ranking(request):
     universities_rank = cache_university_ranking()
     return render(request, 'academicpeak_ranking.html', {'universities_rank': universities_rank})
-
 
 def academic_peak_fairness(request):
     return render(request, 'academicpeak_fairness.html')

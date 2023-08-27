@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="{% static 'css/lazy.css' %}">
     <link rel="stylesheet" href="{% static 'css/demo.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body class="index">
 
@@ -57,6 +73,56 @@
                             Get AP 2024 World University Rankings
                         </button>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro bg-light">
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 50px !important;" id="modals">Academic Peak World University Rankings 2024
+                        !</h2>
+                    <p style="font-size: 20px !important;">"Introducing the 2024 University Rankings on Academic Peak!
+                        Dive into our latest,
+                        meticulously curated list, reflecting cutting-edge research and up-to-date student feedback.
+                        Discover top-tier institutions, emerging colleges, and dynamic trends. Elevate your academic
+                        perspective with the most informed choices for 2024!"</p>
+                </div>
+                <div class="component">
+                    <a href="{% url 'academic_peak_university_ranking' %}">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-info"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            Get AP 2024 World University Rankings
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="padding-bottom: 3rem !important;" class="container">
+            <div style="padding-top: 3rem !important;" class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header">
+                        <h2 style="font-size: 50px !important;" id="modals">Academic Peak World University Rankings 2024
+                            !</h2>
+                        <p style="font-size: 20px !important;">"Introducing the 2024 University Rankings on Academic
+                            Peak!
+                            Dive into our latest,
+                            meticulously curated list, reflecting cutting-edge research and up-to-date student feedback.
+                            Discover top-tier institutions, emerging colleges, and dynamic trends. Elevate your academic
+                            perspective with the most informed choices for 2024!"</p>
+                    </div>
+                    <div class="component">
+                        <a href="{% url 'academic_peak_university_ranking' %}">
+                            <button style="font-size: 20px !important;" type="button" class="btn btn-info"
+                                    data-toggle="modal" data-target="#glassAnimals">
+                                Get AP 2024 World University Rankings
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

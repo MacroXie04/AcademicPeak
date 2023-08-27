@@ -11,7 +11,7 @@ urlpatterns = [
     path('fairness/', views.academic_peak_fairness, name='academic_peak_fairness'),
     path('legal/', views.academic_peak_legal, name='academic_peak_legal'),
     path('translate/', views.translate, name='academic_peak_translate'),
-    path('display/markdown/<str:file_name>/', views.display_markdown, name='display_markdown'),
+    path('markdown/<str:file_name>/', views.display_markdown, name='display_markdown'),
 
 
 ]

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     # installed apps
     'mainsite.apps.MainsiteConfig',
     'academicpeak.apps.AcademicpeakConfig',
-    'translator.apps.TranslatorConfig',
     'java.apps.JavaConfig',
     'chatbot.apps.ChatbotConfig',
 

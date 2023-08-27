@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown Display</title>
+    <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+</style>
+</head>
+<body>
+    <article class="markdown-body">
+        {% if markdown_content %}
+            {{ markdown_content|safe }}
+        {% else %}
+            <p>Markdown content not available.</p>
+        {% endif %}
+    </article>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'academicpeak_mainpage.html' %}
+
+{% block content %}
+  <h2>{{ article.title }}</h2>
+  <div class="content">
+    {{ article.content_html|safe }}
+  </div>
+  <p>Author: {{ article.author }}</p>
+{% endblock %}

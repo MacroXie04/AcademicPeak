@@ -1,20 +1,19 @@
 {% extends 'academicpeak_mainpage.html' %}
 {% load static %}
 {% block title %}
-    About academic Peak
+    Academic Peak World University Ranking 2024
 {% endblock %}
 
 {% block content %}
     <div style="width: 100% !important; background-color: #221f1f !important; padding-top: 3rem !important; padding-bottom: 3rem !important; ;"
          class="page-hero bg-primary text-white" id="banner">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="emoji mb-3">
                         <img src="{% static 'img/Academic Peak Logo web.svg' %}" height="100px">
                     </div>
-                    <h1 style="color: #fff!important; font-size: 45px">Academic Peak World University Ranking 2024</h1>
+                    <h1 style="color: #fff!important; font-size: 45px">Academic Peak World University Rankings 2024</h1>
                     <p style="margin-bottom: 0rem !important;" class="lead">"Where Fairness Meets Innovation in
                         University Rankings."</p>
                     <a style="color: #ffffff !important;" href="{% url 'academic_peak_fairness' %}"
@@ -24,79 +23,31 @@
         </div>
     </div>
 
-
-
     <div style="width: 100% !important; padding: 0.5rem 0rem !important;" class="intro bg-light">
         <div class="container">
             {% for key, university in universities_rank.items %}
-    <div style="display: flex; width: 80vw; max-width: 800px; margin: 1vw auto; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
-        <img style="width: 25vw; max-width: 200px; height: auto; object-fit: cover;"
-             src="/static/img/universities/{{ university.Photo_Link }}"
-             alt="university photo">
+                <div style="display: flex; width: 80vw; max-width: 800px; margin: 1vw auto; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+                    <img style="width: 25vw; max-width: 200px; height: auto; object-fit: cover;"
+                         src="/static/img/universities/{{ university.Photo_Link }}"
+                         alt="university photo">
 
-        <div style="display: flex; flex-direction: column; width: 55vw; padding: 1vw;">
-            <div style="font-size: calc(1.3em + 0.4vw); font-weight: bold; color: #333; margin-bottom: 0.5vw; text-decoration: none;">
-                <a href="{{ university.Link }}" style="color: #333; text-decoration: none;">{{ university.University_Name }}</a>
-            </div>
-            <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">{{ university.Country }}</div>
-            <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;"># {{ university.Rank }} in Best Global Universities</div>
-            <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">Global Score: {{ university.Global_Score }}</div>
-            <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">Enrollment: {{ university.Enrollment }}</div>
-        </div>
-    </div>
-{% endfor %}
-
-
-
+                    <div style="display: flex; flex-direction: column; width: 55vw; padding: 1vw;">
+                        <div style="font-size: calc(1.3em + 0.4vw); font-weight: bold; color: #333; margin-bottom: 0.5vw; text-decoration: none;">
+                            <a href="{{ university.Link }}"
+                               style="color: #333; text-decoration: none;">{{ university.University_Name }}</a>
+                        </div>
+                        <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">{{ university.Country }}</div>
+                        <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">
+                            # {{ university.Rank }} in Best Global Universities
+                        </div>
+                        <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">Global
+                            Score: {{ university.Global_Score }}</div>
+                        <div style="font-size: calc(0.9em + 0.2vw); color: #666; margin-left: 1vw;">
+                            Enrollment: {{ university.Enrollment }}</div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-    <meta name="google-site-verification" content="1wRpMJDdVYT9I-j7zgSXh-ZnMtxsTd13FkkwUkXDOCA"/>
-    <meta charset="UTF-8">
-    <title>Academic Peak Global Universities Ranking 2024</title>
-    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
-    <link rel="icon" href="{% static 'img/Academic Peak Logo web.svg' %}">
-</head>
-<body>
-<!-- head -->
-<div class="top_blue">
-    <a href="{% url 'academic_peak_mainpage' %}"><img class="logo" src="{% static 'img/Academic Peak Logo CB.png' %}"/></a>
-</div>
-
-
-<!-- title -->
-<div class="web_info_background_gray">
-    <h1 class="h1_text">2024 Best Global Universities Rankings</h1>
-</div>
-
-<!-- ranking info generate by django for loop -->
-{% for key, university in universities_rank.items %}
-    <div class="university-rank-container">
-        <img class="university_photo" src="/static/img/universities/{{ university.Photo_Link }}" alt="university photo">
-
-        <div style="university_info_container">
-            <div class="university_name">
-                <a href="{{ university.Link }}">{{ university.University_Name }}</a>
-            </div>
-            <div class="country">{{ university.Country }}</div>
-            <div class="rank_info">
-                # {{ university.Rank }} in Best Global Universities
-            </div>
-            <div class="global_score">Global Score: {{ university.Global_Score }}</div>
-            <div class="enrollment">Enrollment: {{ university.Enrollment }}</div>
-        </div>
-    </div>
-{% endfor %}
-</body>
-</html>
 

@@ -9,5 +9,9 @@ urlpatterns = [
     path('about/', views.academic_peak_about, name='academic_peak_about'),
     path('contact/', views.academic_peak_contact, name='academic_peak_contact'),
     path('fairness/', views.academic_peak_fairness, name='academic_peak_fairness'),
+    path('legal/', views.academic_peak_legal, name='academic_peak_legal'),
+    path('translate/', views.translate, name='academic_peak_translate'),
+    path('display/markdown/<str:file_name>/', views.display_markdown, name='display_markdown'),
+
 
 ]

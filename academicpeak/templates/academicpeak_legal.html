@@ -1,0 +1,54 @@
+{% extends 'academicpeak_mainpage.html' %}
+{% load static %}
+
+{% block title %}
+    Legal - Academic Peak
+{% endblock %}
+
+{% block content %}
+    <div style="width: 100% !important; background-color: #221f1f !important; padding-top: 3rem !important; padding-bottom: 3rem !important; ;"
+         class="page-hero bg-primary text-white" id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="emoji mb-3">
+                        <img src="{% static 'img/Academic Peak Logo web.svg' %}" height="100px">
+                    </div>
+                    <h1 style="color: #fff!important; font-size: 45px">Academic Peak Legal</h1>
+                    <p style="margin-bottom: 0rem !important;" class="lead">"As academic peak we comply with various
+                        laws and regulations to legally provide high quality content to our users.
+                        "</p>
+                    <a style="color: #ffffff !important;" href="{% url 'academic_peak_mainpage' %}"
+                       class="btn btn-outline-primary btn-lg mt-4">Academic Peak Home Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 46px !important;" id="modals">Serve every scholar legally</h2>
+                    <p style="font-size: 20px !important;">Academic Peak
+                        已在中华人民共和国工业和信息化部备案，以确保网站及提供服务的合法性。</p>
+                    <p style="font-size: 20px !important;">Academic Peak has been registered with Ministry of Industry
+                        and Information Technology of the People's Republic of China to ensure the legality of the
+                        website and the services provided.</p>
+                    <p style="font-size: 20px !important;">Academic Peak 严格遵守中华人民共和国的法律和法规。</p>
+                    <p style="font-size: 20px !important;">Academic Peak strictly abides by the laws and regulations of
+                        the People's Republic of China.</p>
+                </div>
+                <div class="component">
+                    <a href="https://beian.miit.gov.cn/#/Integrated/index">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-info"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            京ICP备2023015619号 - Academic Peak
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

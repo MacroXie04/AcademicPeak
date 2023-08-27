@@ -157,7 +157,7 @@ def adjust_university_rank():
 if __name__ == '__main__':
     # 设置Excel文件路径
     # excel_path = r'D:\hongzhe.site\academicpeak\database.xlsx'
-    excel_path = r'/Users/hongzhexie/PycharmProjects/hongzhe.site/academicpeak/database.xlsx'
+    excel_path = r'C:\Users\xieho\PycharmProjects\hongzhe.site\academicpeak\database.xlsx'
     # 读取Excel文件导入数据库
-    # import_university_form_excel(excel_path)
+    import_university_form_excel(excel_path)
     print_university()

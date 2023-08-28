@@ -8,7 +8,7 @@
 ## Restart uwsgi
 >uwsgi --reload uwsgi.pid
 ## Reload nginx
->nginx -s reload
+>sudo nginx -s reload
 ## Start nginx
 >sudo nginx
 ## Stop nginx

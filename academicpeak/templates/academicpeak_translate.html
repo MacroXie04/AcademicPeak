@@ -1,33 +1,52 @@
+{% extends 'academicpeak_mainpage.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/translate.css' %}">
-    <title>Translator</title>
-</head>
-<body>
-    <div class="container">
-        <form method="post" class="translation-form">
+
+{% block title %}
+    Translator - Academic Peak
+{% endblock %}
+
+{% block content %}
+    <div style="color: #221f1f !important;" class="navbars">
+        <nav style="color: #221f1f !important;" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'academic_peak_mainpage' %}"><img
+                        src="{% static 'img/Academic Peak Logo web.svg' %}"
+                        alt="Academic Peak Logo" class="mr-2"
+                        height="30"> Translator - Academic Peak</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 0px !important; padding: 20px;">
+        <form method="post" class="translation-form"
+              style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             {% csrf_token %}
-            <label for="source_text">请在此键入翻译文本（文本语言将自动识别）：</label><br>
-            <textarea name="source_text" rows="4" cols="50">{{ request.POST.source_text }}</textarea><br><br>
-            <button type="button" id="clearBtn">清空</button>
-            <button type="submit">翻译</button>
+            <label for="source_text" style="margin-bottom: -5px;">Type the text here(the language of the text will be
+                recognized automatically)</label><br>
+            <textarea
+                    style="width: 100%; height: 250px; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box; margin-top: 10px;"
+                    name="source_text" rows="4" cols="50">{{ request.POST.source_text }}</textarea><br><br>
+            <button type="button"
+                    style="background-color: #f5f5f5; color: #221f1f; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;"
+                    id="clearBtn">Clear
+            </button>
+            <button type="submit"
+                    style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                Translate
+            </button>
         </form>
         {% if translated_text %}
-        <div class="translation-result">
-            <p>{{ translated_text }}</p>
-        </div>
+            <div class="translation-result"
+                 style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px;">
+                <p>{{ translated_text }}</p>
+            </div>
         {% endif %}
     </div>
 
     <script>
-        document.getElementById('clearBtn').addEventListener('click', function() {
+        document.getElementById('clearBtn').addEventListener('click', function () {
             document.getElementsByName('source_text')[0].value = '';
         });
-
     </script>
-</body>
-</html>
+
+{% endblock %}

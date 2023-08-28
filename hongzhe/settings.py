@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     # installed apps
     'mainsite.apps.MainsiteConfig',
     'academicpeak.apps.AcademicpeakConfig',
-    'java.apps.JavaConfig',
     'chatbot.apps.ChatbotConfig',
 
     # Django apps

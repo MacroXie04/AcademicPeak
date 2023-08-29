@@ -1,6 +1,6 @@
 # deploy
 ## Django project path
-> cd /var/www/hongzhe
+>cd /var/www/hongzhe
 ## Enter virtualenv
 >source bin/activate
 ## Recollect static files

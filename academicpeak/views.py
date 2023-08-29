@@ -24,20 +24,20 @@ def cache_university_ranking():
     return universities_rank
 
 
-def academic_peak_scholar(request):
+def academic_peak_markdown(request):
     # Try to get folder_data from cache
     folder_data = cache.get('folder_data')
 
     if folder_data is None:
         markdown_manager = MarkdownDirectoryManager()
         folder_data = markdown_manager.get_folder_data()
-        # Store folder_data in cache for 1 hour (3600 seconds)
-        cache.set('folder_data', folder_data, 3600)
+        # Store folder_data in cache for 1 hour (in seconds)
+        cache.set('folder_data', folder_data, 1)
 
-    return render(request, 'academicpeak_scholar.html', {'folder_data': folder_data})
+    return render(request, 'academicpeak_markdown.html', {'folder_data': folder_data})
 
 
-def academic_peak_markdown(request, md_directory, md_name):
+def academic_peak_markdown_reader(request, md_directory, md_name):
     # Construct the markdown file path based on directory and name
     markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', md_directory,
                                       f'{md_name}.md')
@@ -49,11 +49,14 @@ def academic_peak_markdown(request, md_directory, md_name):
             # 使用 CommonMark-Py 渲染 Markdown 为 HTML
             html_content = commonmark.commonmark(markdown_content)
 
-            return render(request, 'academicpeak_markdown.html', {'markdown_content': html_content})
+            return render(request, 'academicpeak_markdown_reader.html', {'markdown_content': html_content})
     else:
         print('Error: File not found.')
-        return render(request, 'academicpeak_markdown.html')
+        return render(request, 'academicpeak_markdown_reader.html')
 
+
+def academic_peak_scholar(request):
+    return render(request, 'academicpeak_scholar.html')
 
 def academic_peak_translate(request):
     translated_text = None

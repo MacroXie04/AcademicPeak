@@ -10,7 +10,9 @@ urlpatterns = [
     path('fairness/', views.academic_peak_fairness, name='academic_peak_fairness'),
     path('legal/', views.academic_peak_legal, name='academic_peak_legal'),
     path('translate/', views.academic_peak_translate, name='academic_peak_translate'),
-    path("scholar/", views.academic_peak_scholar, name="academic_peak_scholar"),
-    path('markdown/<str:md_directory>/<str:md_name>/', views.academic_peak_markdown, name='academic_peak_markdown'),
+    path("markdown/", views.academic_peak_markdown, name="academic_peak_markdown"),
+    path('scholar/', views.academic_peak_scholar, name='academic_peak_scholar'),
+    path('markdown/<str:md_directory>/<str:md_name>/', views.academic_peak_markdown_reader, name='academic_peak_markdown_reader'),
+
 
 ]

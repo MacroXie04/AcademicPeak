@@ -1,0 +1,27 @@
+{% extends 'academicpeak_mainpage.html' %}
+{% load static %}
+
+{% block title %}
+    Markdown Reader - Academic Peak
+{% endblock %}
+
+{% block content %}
+    <div style="color: #221f1f !important;" class="navbars">
+        <nav style="color: #221f1f !important;" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div  class="container">
+                <a  class="navbar-brand d-flex align-items-center" href="{% url 'academic_peak_markdown' %}"><img src="{% static 'img/Academic Peak Logo web black.svg' %}"
+                                                                                    alt="Academic Peak Logo" class="mr-2"
+                                                                                    height="30"> Scholar - Academic Peak</a>
+            </div>
+        </nav>
+    </div>
+
+    <article class="markdown-body">
+        {% if markdown_content %}
+            {{ markdown_content|safe }}
+        {% else %}
+            <p>Markdown content not available.</p>
+        {% endif %}
+    </article>
+
+{% endblock %}

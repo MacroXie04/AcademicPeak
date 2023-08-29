@@ -13,6 +13,6 @@ urlpatterns = [
     path("markdown/", views.academic_peak_markdown, name="academic_peak_markdown"),
     path('scholar/', views.academic_peak_scholar, name='academic_peak_scholar'),
     path('markdown/<str:md_directory>/<str:md_name>/', views.academic_peak_markdown_reader, name='academic_peak_markdown_reader'),
-
+    path('chat/', views.academic_peak_chat, name='academic_peak_chat')
 
 ]

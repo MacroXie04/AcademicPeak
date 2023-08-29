@@ -9,11 +9,36 @@ from django.core.cache import cache
 from .code import database
 from django.conf import settings
 from academicpeak.code.markdown import MarkdownDirectoryManager
+from django.shortcuts import render
+from django.http import JsonResponse
+import openai
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
-APP_KEY = '3826d1e6c939ecaf'
-APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
+
+
+
+def academic_peak_chat(request):
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text')
+        print(f'user_input: {input_text}')
+
+        openai.api_key = ''
+
+        # Constructing the prompt with academic instructions
+        prompt = f"Academic Chat:\nUser: {input_text}\nAcademic Chat: Please provide a detailed and scholarly response discussing the topic: {input_text}\n"
+
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            max_tokens=1024,  # You can adjust the length as needed
+            temperature=0.7  # Adjust the temperature as needed
+        )
+
+        chatbot_response = response.choices[0].text.strip()
+        return JsonResponse({'response': chatbot_response})
+
+    return render(request, 'academicpeak_chat.html')
 
 
 def cache_university_ranking():
@@ -58,6 +83,7 @@ def academic_peak_markdown_reader(request, md_directory, md_name):
 def academic_peak_scholar(request):
     return render(request, 'academicpeak_scholar.html')
 
+
 def academic_peak_translate(request):
     translated_text = None
     if request.method == 'POST':
@@ -76,15 +102,22 @@ def translator(text):
 
 
 def judge_language(s: str) -> tuple[str, str] | str:
-    # 检查字符串中的每个字符
-    for char in s:
+    # 找到第一个单词
+    first_word = s.split()[0] if s else ""
+
+    if not first_word:
+        return 'unknown', 'unknown'
+
+    for char in first_word:
         if '\u4e00' <= char <= '\u9fa5' or '\u3400' <= char <= '\u4dbf':
             return 'zh-CHS', 'en'
         elif '\u0000' <= char <= '\u007f':
             continue
         else:
             return 'unknown', 'unknown'
+
     return 'en', 'zh-CHS'
+
 
 
 def generate_translation(text, lang_from, lang_to):
@@ -117,7 +150,6 @@ def academic_peak_university_ranking(request):
 
 def academic_peak_fairness(request):
     return render(request, 'academicpeak_fairness.html')
-
 
 
 def academic_peak_about(request):

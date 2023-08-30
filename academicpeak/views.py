@@ -9,36 +9,123 @@ from django.core.cache import cache
 from .code import database
 from django.conf import settings
 from academicpeak.code.markdown import MarkdownDirectoryManager
+from academicpeak.code.academy import AcademyDirectoryManager
 from django.shortcuts import render
 from django.http import JsonResponse
 import openai
+import zhipuai
+
+zhipuai.api_key = "adf27f8458e0c0c671566ab486f3b920.jERezsRMWpvGdCwD"
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
+APP_KEY = '3826d1e6c939ecaf'
+APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
 
+"""
+def test(request):
+    return render(request, template_name='acaedmicpeak_academy_study.html')
+"""
 
 
 def academic_peak_chat(request):
     if request.method == 'POST':
         input_text = request.POST.get('input_text')
-        print(f'user_input: {input_text}')
+        if input_text:
+            print(f'Academic Chat:{input_text}')
 
-        openai.api_key = ''
+            prompt = f"Now that you are the Academic Chat model of Academic Peak website, please answer the questions:{input_text}"
 
-        # Constructing the prompt with academic instructions
-        prompt = f"Academic Chat:\nUser: {input_text}\nAcademic Chat: Please provide a detailed and scholarly response discussing the topic: {input_text}\n"
+            response = zhipuai.model_api.invoke(
+                model="chatglm_std",
+                prompt=[{"role": "user", "content": prompt}],
+                top_p=0.7,
+                temperature=0.9,
+            )
 
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=1024,  # You can adjust the length as needed
-            temperature=0.7  # Adjust the temperature as needed
-        )
+            print(response)
+            chat_status = response['msg']
+            if chat_status == f'操作成功':
+                chatbot_response = response['data']['choices'][0]['content']
+            else:
+                chatbot_response = response['msg']
 
-        chatbot_response = response.choices[0].text.strip()
-        return JsonResponse({'response': chatbot_response})
+            return JsonResponse({'response': chatbot_response})
 
     return render(request, 'academicpeak_chat.html')
+
+
+def academic_peak_academy(request):
+    # Try to get folder_data from cache
+    academy_data = cache.get('academy_data')
+
+    if academy_data is None:
+        academy_manager = AcademyDirectoryManager()
+        academy_data = academy_manager.get_folder_data()
+        # Store academy_data in cache for 1 hour (in seconds)
+        cache.set('academy_data', academy_data, 1)
+
+    return render(request, 'academicpeak_academy.html', {'folder_data': academy_data})
+
+
+def academic_peak_academy_study(request, subject, item_code):
+    if os.path.exists(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt'):
+        cache_key = f'academy_txt_{subject}_{item_code}'
+        cached_txt = cache.get(cache_key)
+        video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt')
+        print(video_txt_path)
+        with open(video_txt_path, 'r', encoding='utf-8') as video_txt:
+            txt = video_txt.read().replace('\n', '. ')
+        txt_length = len(txt)
+        if txt_length > 700:
+            placeholder = "video loaded, model is over tokens some questions may not be responses"
+        else:
+            placeholder = "video loaded, any questions please ask"
+    else:
+        placeholder = "video loading failed, questions will be answered academically"
+
+    print(placeholder)
+
+    print(request.method)
+    if request.method == 'POST':
+        question = request.POST.get('input_text')
+        print(f'Academy: {question}')
+        if question:
+            print(f'Academy: {question}')
+
+            if cached_txt:
+                txt = cached_txt
+            else:
+                video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject,
+                                              f'{item_code}.txt')
+                print(video_txt_path)
+                with open(video_txt_path, 'r', encoding='utf-8') as video_txt:
+                    txt = video_txt.read().replace('\n', '. ')
+
+            if os.path.exists(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt'):
+                prompt = f'Now that you are the Academic Chat model of Academic Peak website, answer this question based on video caption:{question},This is the caption of the video：{txt}'
+            else:
+                prompt = f"Now that you are the Academic Chat model of Academic Peak website, please answer the questions:{question}"
+
+            print(prompt)
+            response = zhipuai.model_api.invoke(
+                model="chatglm_lite",
+                prompt=[{"role": "user", "content": prompt}],
+                top_p=0.7,
+                temperature=0.9,
+            )
+
+            print(response)
+            chat_status = response['msg']
+            if chat_status == f'操作成功':
+                chatbot_response = response['data']['choices'][0]['content']
+            else:
+                chatbot_response = response['msg']
+
+            return JsonResponse({'response': chatbot_response})
+
+    return render(request, 'acaedmicpeak_academy_study.html',
+                  context={'subject': subject, 'item_code': item_code, 'placeholder': placeholder})
 
 
 def cache_university_ranking():
@@ -81,6 +168,10 @@ def academic_peak_markdown_reader(request, md_directory, md_name):
 
 
 def academic_peak_scholar(request):
+    if request.method == 'POST':
+        search = request.POST.get('source_text', '')
+        if search:
+            print(search)
     return render(request, 'academicpeak_scholar.html')
 
 
@@ -117,7 +208,6 @@ def judge_language(s: str) -> tuple[str, str] | str:
             return 'unknown', 'unknown'
 
     return 'en', 'zh-CHS'
-
 
 
 def generate_translation(text, lang_from, lang_to):

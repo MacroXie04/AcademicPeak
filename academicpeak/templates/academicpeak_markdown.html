@@ -31,8 +31,8 @@
                     <div class="header">
                         <h2 style="font-size: 46px !important;" id="modals">{{ folder.name }}</h2>
                         {% for item in folder.items %}
-                            <a href="{% url 'academic_peak_markdown_reader' folder.name item %}" target="_blank">
-                                <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">{{ item }}</p>
+                            <a href="{% url 'a' folder.name item %}" target="_blank">
+                                <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">- {{ item }}</p>
                             </a>
                         {% endfor %}
                     </div>
@@ -42,5 +42,17 @@
 
         </div>
     {% endfor %}
+
+    <footer class="footer-1 bg-light text-dark">
+        <div class="container">
+            <div class="copyright text-center">
+                <hr/>
+                <p class="small">&copy; 2023, Academic Peak - <a
+                        target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
+                        title="中华人民共和国工业和信息化部要求公布内容">京ICP备2023015619号</a></p>
+            </div>
+
+        </div>
+    </footer>
 
 {% endblock %}

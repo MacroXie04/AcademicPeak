@@ -8,10 +8,11 @@
 {% block content %}
     <div style="color: #221f1f !important;" class="navbars">
         <nav style="color: #221f1f !important;" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-            <div  class="container">
-                <a  class="navbar-brand d-flex align-items-center" href="{% url 'academic_peak_markdown' %}"><img src="{% static 'img/Academic Peak Logo web black.svg' %}"
-                                                                                    alt="Academic Peak Logo" class="mr-2"
-                                                                                    height="30"> Markdown - Academic Peak</a>
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'academic_peak_markdown' %}"><img
+                        src="{% static 'img/Academic Peak Logo web black.svg' %}"
+                        alt="Academic Peak Logo" class="mr-2"
+                        height="30"> Markdown - Academic Peak</a>
             </div>
         </nav>
     </div>
@@ -24,4 +25,15 @@
         {% endif %}
     </article>
 
+    <footer class="footer-1 bg-light text-dark">
+        <div class="container">
+            <div class="copyright text-center">
+                <hr/>
+                <p class="small">&copy; 2023, Academic Peak - <a
+                        target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
+                        title="中华人民共和国工业和信息化部要求公布内容">京ICP备2023015619号</a></p>
+            </div>
+
+        </div>
+    </footer>
 {% endblock %}

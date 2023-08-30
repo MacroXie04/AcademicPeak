@@ -21,10 +21,9 @@
         <form method="post" class="translation-form"
               style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center;">
             {% csrf_token %}
-            <textarea
+            <textarea placeholder="Search Academic Peak"
                     style="width: 100%; height: 46px; margin-right: 15px !important; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box;"
-                    name="source_text" rows="4" cols="50" onkeydown="preventEnter(event)">{{ request.POST.source_text }}
-            </textarea>
+                    name="source_text" rows="4" cols="50" onkeydown="preventEnter(event)">{{ request.POST.source_text }}</textarea>
             <button type="submit"
                     style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; display: flex; align-items: center;">
                 <img src="{% static 'img/Academic Peak Logo web black.svg' %}" alt="Academic Peak Logo"
@@ -39,10 +38,6 @@
                     }
                 }
             </script>
-
-
         </form>
     </div>
-
-
 {% endblock %}

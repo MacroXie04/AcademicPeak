@@ -15,12 +15,8 @@ from django.http import JsonResponse
 import openai
 import zhipuai
 
-zhipuai.api_key = "adf27f8458e0c0c671566ab486f3b920.jERezsRMWpvGdCwD"
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
-
-APP_KEY = '3826d1e6c939ecaf'
-APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
 
 """
 def test(request):

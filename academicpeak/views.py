@@ -15,12 +15,11 @@ from django.http import JsonResponse
 import openai
 import zhipuai
 
-zhipuai.api_key = "adf27f8458e0c0c671566ab486f3b920.jERezsRMWpvGdCwD"
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
-APP_KEY = '3826d1e6c939ecaf'
-APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
+
 
 """
 def test(request):
@@ -37,7 +36,7 @@ def academic_peak_chat(request):
             prompt = f"Now that you are the Academic Chat model of Academic Peak website, please answer the questions:{input_text}"
 
             response = zhipuai.model_api.invoke(
-                model="chatglm_std",
+                model="chatglm_pro",
                 prompt=[{"role": "user", "content": prompt}],
                 top_p=0.7,
                 temperature=0.9,
@@ -69,11 +68,12 @@ def academic_peak_academy(request):
 
 
 def academic_peak_academy_study(request, subject, item_code):
-    if os.path.exists(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt'):
+
+    video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt')
+
+    if os.path.exists(video_txt_path):
         cache_key = f'academy_txt_{subject}_{item_code}'
         cached_txt = cache.get(cache_key)
-        video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt')
-        print(video_txt_path)
         with open(video_txt_path, 'r', encoding='utf-8') as video_txt:
             txt = video_txt.read().replace('\n', '. ')
         txt_length = len(txt)
@@ -84,30 +84,21 @@ def academic_peak_academy_study(request, subject, item_code):
     else:
         placeholder = "video loading failed, questions will be answered academically"
 
-    print(placeholder)
-
-    print(request.method)
     if request.method == 'POST':
         question = request.POST.get('input_text')
-        print(f'Academy: {question}')
-        if question:
-            print(f'Academy: {question}')
 
+        if question:
             if cached_txt:
                 txt = cached_txt
             else:
-                video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject,
-                                              f'{item_code}.txt')
-                print(video_txt_path)
                 with open(video_txt_path, 'r', encoding='utf-8') as video_txt:
                     txt = video_txt.read().replace('\n', '. ')
 
-            if os.path.exists(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt'):
-                prompt = f'Now that you are the Academic Chat model of Academic Peak website, answer this question based on video caption:{question},This is the caption of the video：{txt}'
+            if os.path.exists(video_txt_path):
+                prompt = f'Now that you are the Academic Chat model of Academic Peak website, answer this question based on video caption: {question}, This is the caption of the video: {txt}'
             else:
-                prompt = f"Now that you are the Academic Chat model of Academic Peak website, please answer the questions:{question}"
+                prompt = f"Now that you are the Academic Chat model of Academic Peak website, please answer the question: {question}"
 
-            print(prompt)
             response = zhipuai.model_api.invoke(
                 model="chatglm_lite",
                 prompt=[{"role": "user", "content": prompt}],
@@ -115,9 +106,8 @@ def academic_peak_academy_study(request, subject, item_code):
                 temperature=0.9,
             )
 
-            print(response)
             chat_status = response['msg']
-            if chat_status == f'操作成功':
+            if chat_status == '操作成功':
                 chatbot_response = response['data']['choices'][0]['content']
             else:
                 chatbot_response = response['msg']
@@ -151,14 +141,12 @@ def academic_peak_markdown(request):
 
 def academic_peak_markdown_reader(request, md_directory, md_name):
     # Construct the markdown file path based on directory and name
-    markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', md_directory,
-                                      f'{md_name}.md')
+    markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', md_directory, f'{md_name}.md')
 
     if os.path.exists(markdown_file_path) and markdown_file_path.endswith('.md'):
         with open(markdown_file_path, 'r', encoding='utf-8') as f:
             markdown_content = f.read()
 
-            # 使用 CommonMark-Py 渲染 Markdown 为 HTML
             html_content = commonmark.commonmark(markdown_content)
 
             return render(request, 'academicpeak_markdown_reader.html', {'markdown_content': html_content})
@@ -244,3 +232,7 @@ def academic_peak_fairness(request):
 
 def academic_peak_about(request):
     return render(request, 'academicpeak_about.html')
+
+def academic_peak_gratitude(request):
+    return render(request, template_name='academicpeak_gratitude.html')
+

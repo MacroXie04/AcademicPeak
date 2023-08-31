@@ -1,5 +1,4 @@
 # the urls.py for academicpeak
-
 from django.urls import path
 from academicpeak import views
 
@@ -16,6 +15,7 @@ urlpatterns = [
     path('chat/', views.academic_peak_chat, name='academic_peak_chat'),
     path('academy/<str:subject>/<str:item_code>/', views.academic_peak_academy_study, name='academic_peak_academy_study'),
     path('academy/', views.academic_peak_academy, name='academic_peak_academy'),
+    path('gratitude/', views.academic_peak_gratitude, name='academic_peak_gratitude'),
     # path('test/', views.test)
 
 ]

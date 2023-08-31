@@ -1,0 +1,91 @@
+{% extends 'academicpeak_mainpage.html' %}
+{% load static %}
+{% block title %}
+    About Academic Peak
+{% endblock %}
+
+{% block content %}
+    <div style="background-color: #221f1f !important; padding-top: 6rem !important; padding-bottom: 6rem !important"
+         class="page-hero bg-primary text-white" id="banner">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="emoji mb-3">
+                        <img src="{% static 'img/Academic Peak Logo web.svg' %}" height="100px">
+                    </div>
+                    <h1 style="color: #fff!important">Gratitude</h1>
+                    <p class="lead">Academic Peak is inseparable from the contributions of various institutions or
+                        individuals
+                    </p>
+                    <a style="color: #ffffff !important;" href="{% url 'academic_peak_about' %}"
+                       class="btn btn-outline-primary btn-lg mt-4">About Academic Peak</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro bg-light">
+        <div class="container">
+            <div style="padding-top: 3rem !important; padding-bottom: 3rem !important" class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header">
+                        <a href="https://www.miit.gov.cn/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                中华人民共和国工业和化信息部</p>
+                        </a>
+
+                        <a href="http://www.cabr.com.cn/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                中国建筑科学研究院有限公司</p>
+                        </a>
+
+                        <a href="https://pkpm.cn/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                中国建筑科学研究院建筑工程软件研究所</p>
+                        </a>
+
+                        <a href="https://cloud.tencent.com/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                深圳市腾讯计算机系统有限公司</p>
+                        </a>
+
+                        <a href="https://www.liziyinqing.com/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                粒子引擎（北京）科技有限公司</p>
+                        </a>
+
+                        <a href="">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                安吉炭炭科技有限公司</p>
+                        </a>
+
+                        <a href="https://530t04f125.yicp.fun/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                谭期元网站（干饭助手）</p>
+                        </a>
+
+                        <a href="https://docs.djangoproject.com/zh-hans/4.1/">
+                            <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                Django中文文档</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer-1 bg-light text-dark">
+        <div class="container">
+            <div class="copyright text-center">
+                <hr/>
+                <p class="small">&copy; 2023, Academic Peak - <a
+                        target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
+                        title="中华人民共和国工业和信息化部要求公布内容">京ICP备2023015619号</a></p>
+            </div>
+
+        </div>
+    </footer>
+{% endblock %}

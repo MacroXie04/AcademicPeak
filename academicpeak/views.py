@@ -15,16 +15,52 @@ from django.http import JsonResponse
 import openai
 import zhipuai
 
+# api key
 
+zhipuai.api_key = "adf27f8458e0c0c671566ab486f3b920.jERezsRMWpvGdCwD"
+
+open_api_key = "YOUR_OPENAI_API_KEY"
+openai.api_key = open_api_key
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
-
+APP_KEY = '3826d1e6c939ecaf'
+APP_SECRET = 'lszlbHaIdLKlk6kTU31e9YNj57BcdxAM'
 
 """
 def test(request):
     return render(request, template_name='acaedmicpeak_academy_study.html')
 """
+
+
+def large_language_model(task_id: str, role: str, question: str, model: str):
+    prompt = f'Your role is: {role} ; the question is: {question}'
+    if model == f"open_ai":
+        response = zhipuai.model_api.invoke(
+            model="chatglm_pro",
+            prompt=[{"role": "user", "content": prompt}],
+            top_p=0.7,
+            temperature=0.9,
+        )
+        print(response)
+    else:
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            max_tokens=1024,
+            temperature=0.7
+        )
+        # print(response)
+        chat_status = response['msg']
+        if chat_status == f'操作成功':
+            response = response['data']['choices'][0]['content']
+        else:
+            response = response['msg']
+    return response
+
+
+if __name__ == '__main__':
+    large_language_model()
 
 
 def academic_peak_chat(request):
@@ -68,7 +104,6 @@ def academic_peak_academy(request):
 
 
 def academic_peak_academy_study(request, subject, item_code):
-
     video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt')
 
     if os.path.exists(video_txt_path):
@@ -141,7 +176,8 @@ def academic_peak_markdown(request):
 
 def academic_peak_markdown_reader(request, md_directory, md_name):
     # Construct the markdown file path based on directory and name
-    markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', md_directory, f'{md_name}.md')
+    markdown_file_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown', md_directory,
+                                      f'{md_name}.md')
 
     if os.path.exists(markdown_file_path) and markdown_file_path.endswith('.md'):
         with open(markdown_file_path, 'r', encoding='utf-8') as f:
@@ -149,7 +185,7 @@ def academic_peak_markdown_reader(request, md_directory, md_name):
 
             html_content = commonmark.commonmark(markdown_content)
 
-            return render(request, 'academicpeak_markdown_reader.html', {'markdown_content': html_content})
+            return render(request, 'academicpeak_markdown_reader.html', {'markdown_content': html_content, 'file_name': md_name})
     else:
         print('Error: File not found.')
         return render(request, 'academicpeak_markdown_reader.html')
@@ -214,6 +250,7 @@ def doCall(url, header, params, method):
 
 
 def academic_peak_mainpage(request):
+    # return render(request, template_name='baidu_verify_codeva-l4eBn4mUtJ.html')
     return render(request, 'academicpeak_mainpage.html')
 
 
@@ -233,6 +270,6 @@ def academic_peak_fairness(request):
 def academic_peak_about(request):
     return render(request, 'academicpeak_about.html')
 
+
 def academic_peak_gratitude(request):
     return render(request, template_name='academicpeak_gratitude.html')
-

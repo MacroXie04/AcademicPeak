@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-4BfYUl931C" />
     <title>{% block title %}Academic Peak{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,13 +22,24 @@
             max-width: 980px;
             margin: 0 auto;
             padding: 45px;
+            font-family: 'CustomFont', sans-serif;
         }
 
         @media (max-width: 767px) {
             .markdown-body {
                 padding: 15px;
+                font-family: 'CustomFont', sans-serif;
             }
         }
+
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('{% static 'fonts/JetBrainsMono-Regular.woff2' %}') format('woff2'),
+            url('{% static 'fonts/JetBrainsMono-Regular.woff2' %}') format('woff');
+        }
+
+
     </style>
 </head>
 <body class="index">
@@ -102,7 +114,8 @@
             <div class="col-md-8 offset-md-2">
                 <div class="header">
                     <h2 style="font-size: 50px !important;" id="modals">AP Academy</h2>
-                    <p style="font-size: 20px !important;">"Using the world's most advance AI technology Generative Pretraining Transformer to accelerate your study"</p>
+                    <p style="font-size: 20px !important;">"Using the world's most advance AI technology Generative
+                        Pretraining Transformer to accelerate your study"</p>
                 </div>
                 <div class="component">
                     <a href="{% url 'academic_peak_academy' %}">
@@ -144,7 +157,8 @@
             <div class="col-md-8 offset-md-2">
                 <div class="header">
                     <h2 style="font-size: 50px !important;" id="modals">Academic Chat</h2>
-                    <p style="font-size: 20px !important;">"The most advanced Large Language Model is now on Academic Peak"</p>
+                    <p style="font-size: 20px !important;">"The most advanced Large Language Model is now on Academic
+                        Peak"</p>
                 </div>
                 <div class="component">
                     <a href="{% url 'academic_peak_chat' %}">

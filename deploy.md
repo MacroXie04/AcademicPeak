@@ -17,4 +17,3 @@
 >uwsgi --ini uwsgi.ini
 ## Stop web server
 >uwsgi --stop uwsgi.pid
-

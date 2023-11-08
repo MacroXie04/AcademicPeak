@@ -2,9 +2,13 @@
 
 ### Inheritance
 
-Inheritance is a fundamental feature of object-oriented programming that allows one class(subclass) to inherit the properties and methods of another class(superclass). The main purpose of inheritance is to enable code reuse and extensibility, making the program easier to maintain and extend. 
+Inheritance is a fundamental feature of object-oriented programming that allows one class(subclass) to inherit the
+properties and methods of another class(superclass). The main purpose of inheritance is to enable code reuse and
+extensibility, making the program easier to maintain and extend.
 
-When one class inherits another, it acquires all the public and protected attributes and methods of the superclass. The subclass can then add or override these properties and methods as needed. This helps reduce code duplication and improves the modularity of the program.
+When one class inherits another, it acquires all the public and protected attributes and methods of the superclass. The
+subclass can then add or override these properties and methods as needed. This helps reduce code duplication and
+improves the modularity of the program.
 
 ```java
 //Example
@@ -24,9 +28,11 @@ class Dog extends Animal {
 }
 ```
 
-The **dog** class inherits the animal class. This means that the **dog** class will acquire all the properties and methods of the **animal** class. In this case, the **dog** class overrides the **makeSound** methods, so when the **makeSound** method of a **dog** object is called it will output “*The dog barks.*”
+The **dog** class inherits the animal class. This means that the **dog** class will acquire all the properties and
+methods of the **animal** class. In this case, the **dog** class overrides the **makeSound** methods, so when the *
+*makeSound** method of a **dog** object is called it will output “*The dog barks.*”
 
-Subclasses can also call the methods of the superclass using the **super** keyword. 
+Subclasses can also call the methods of the superclass using the **super** keyword.
 
 ```java
 //Example 
@@ -39,7 +45,9 @@ class Dog extends Animal {
 }
 ```
 
-Java supports single inheritance, meaning a class can only inherit from one superclass. However, multiple inheritance can be achieved through interfaces. Additionally, all classes in Java directly or indirectly inherit from the **java.lang.Object** class, which is the root class in the Java class hierarchy. 
+Java supports single inheritance, meaning a class can only inherit from one superclass. However, multiple inheritance
+can be achieved through interfaces. Additionally, all classes in Java directly or indirectly inherit from the *
+*java.lang.Object** class, which is the root class in the Java class hierarchy.
 
 ```java
 //Example
@@ -94,9 +102,14 @@ public class Main {
 
 ### Polymorphism
 
-Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common superclass. This enables the same method or interface to be used with different types, providing flexibility and extensibility in code. Polymorphism comes in two main flavors: compile-time (static) polymorphism and runtime (dynamic) polymorphism. 
+Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to
+be treated as objects of a common superclass. This enables the same method or interface to be used with different types,
+providing flexibility and extensibility in code. Polymorphism comes in two main flavors: compile-time (static)
+polymorphism and runtime (dynamic) polymorphism.
 
-- Compile-time polymorphism (Static): This type of polymorphism is achieved through method overloading, which allows multiple methods with the same name but different parameters (either in the number or types of parameters) within the same class.
+- Compile-time polymorphism (Static): This type of polymorphism is achieved through method overloading, which allows
+  multiple methods with the same name but different parameters (either in the number or types of parameters) within the
+  same class.
 
 ```java
 class Math {
@@ -110,7 +123,9 @@ class Math {
 }
 ```
 
-- Runtime polymorphism (Dynamic): This type of polymorphism is achieved through method overriding, which occurs when a subclass provides a new implementation for a method that is already defined in its superclass. Runtime polymorphism allows the program to decide which method implementation to call based on the actual type of the object at runtime.
+- Runtime polymorphism (Dynamic): This type of polymorphism is achieved through method overriding, which occurs when a
+  subclass provides a new implementation for a method that is already defined in its superclass. Runtime polymorphism
+  allows the program to decide which method implementation to call based on the actual type of the object at runtime.
 
 ```java
 // Superclass
@@ -152,7 +167,9 @@ public class Main {
 
 ### Using Super in Subclass
 
-- The **super** keyword is used to refer to the immediate superclass of a subclass. It allows you to call the superclass's methods or access its fields when you need to. This is particularly useful when you want to override a method in the subclass but still want to call the superclass's implementation of the method.
+- The **super** keyword is used to refer to the immediate superclass of a subclass. It allows you to call the
+  superclass's methods or access its fields when you need to. This is particularly useful when you want to override a
+  method in the subclass but still want to call the superclass's implementation of the method.
 
 ```java
 //Example
@@ -209,7 +226,9 @@ my_dog.make_sound()
 # The dog barks
 ```
 
-- The **super** keyword can also be used to call the superclass's constructor from the subclass's constructor. This is particularly useful when the superclass has some fields that need to be initialized before the subclass's constructor is executed.
+- The **super** keyword can also be used to call the superclass's constructor from the subclass's constructor. This is
+  particularly useful when the superclass has some fields that need to be initialized before the subclass's constructor
+  is executed.
 
 ```java
 // Superclass

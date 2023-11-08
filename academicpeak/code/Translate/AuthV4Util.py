@@ -14,6 +14,8 @@ import uuid
     @param appSecret 您的应用密钥
     @param paramsMap 请求参数表
 '''
+
+
 def addAuthParams(appKey, appSecret, params):
     salt = str(uuid.uuid1())
     curtime = str(int(time.time()))
@@ -34,6 +36,8 @@ def addAuthParams(appKey, appSecret, params):
     @param curtime   当前时间戳(秒)
     @return 鉴权签名sign
 '''
+
+
 def calculateSign(appKey, appSecret, salt, curtime):
     strSrc = appKey + salt + curtime + appSecret
     return encrypt(strSrc)

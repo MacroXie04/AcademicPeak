@@ -2,8 +2,10 @@
 
 ## Conditional Tests
 
->At the heart of every if statement is an expression that can be evaluated as True or False and is called a conditional test. Python uses the values True and False to decide whether the code in an if statement should be executed. If a conditional test evaluates to True, Python executes the code following the if statement. If the test evaluates to False, Python ignores the code following the if statement.
-
+> At the heart of every if statement is an expression that can be evaluated as True or False and is called a conditional
+> test. Python uses the values True and False to decide whether the code in an if statement should be executed. If a
+> conditional test evaluates to True, Python executes the code following the if statement. If the test evaluates to False,
+> Python ignores the code following the if statement.
 
 ```python
 car = 'BMW'
@@ -11,7 +13,6 @@ print(car=="BMW")
 
 print(car=="Audi")
 ```
-
 
 ```python
 # Ignoring Case When Checking for Equality
@@ -22,8 +23,6 @@ print(car.lower()=='audi')
 
 ### Checking for Inequality
 
-
-
 ```python
 requested_topping = 'mushrooms'
 if requested_topping != 'anchovies': 
@@ -32,7 +31,6 @@ if requested_topping != 'anchovies':
 
 ### Numerical Comparisons
 
-
 ```python
 age = 18
 print(age==18)
@@ -40,7 +38,6 @@ print(age>10)
 ```
 
 ### Checking Multiple Conditions
-
 
 ```python
 age_0 = 22
@@ -52,7 +49,6 @@ print(age_0 >= 21 or age_1 >= 21)
 
 ### Checking Whether a Value Is in a List
 
-
 ```python
 requested_toppings = ['mushrooms', 'onions', 'pineapple']
 
@@ -61,7 +57,6 @@ print('pepperoni' in requested_toppings)
 ```
 
 ## A Simple Example
-
 
 ```python
 cars = ['audi', 'bmw', 'subaru', 'toyota']
@@ -77,7 +72,6 @@ for car in cars:
 
 ### If-else Statement
 
-
 ```python
 condition_text = False
 if condition_text:
@@ -88,7 +82,6 @@ else:
 ```
 
 ### If-elif-else Chain
-
 
 ```python
 age = 10
@@ -101,8 +94,11 @@ else:
     print("age is greater than 18")
 ```
 
->The if-elif-else chain is powerful, but it’s only appropriate to use when you just need one test to pass. As soon as Python finds one test that passes, it skips the rest of the tests. This behavior is beneficial, because it’s efficient and allows you to test for one specific condition. However, sometimes it’s important to check all of the conditions of interest. In this case, you should use a series of simple if statements with no elif or else blocks. This technique makes sense when more than one condition could be True, and you want to act on every condition that is True.
-
+> The if-elif-else chain is powerful, but it’s only appropriate to use when you just need one test to pass. As soon as
+> Python finds one test that passes, it skips the rest of the tests. This behavior is beneficial, because it’s efficient
+> and allows you to test for one specific condition. However, sometimes it’s important to check all of the conditions of
+> interest. In this case, you should use a series of simple if statements with no elif or else blocks. This technique
+> makes sense when more than one condition could be True, and you want to act on every condition that is True.
 
 ```python
 requested_toppings = ['mushrooms', 'extra cheese']
@@ -119,13 +115,11 @@ print("\nFinished making your pizza!")
 
 ### Checking for Special Items
 
-
 ```python
 requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
 for requested_topping in requested_toppings:
     print(f"Adding {requested_topping}.")
 ```
-
 
 ```python
 requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
@@ -136,7 +130,6 @@ for requested_topping in requested_toppings:
 ```
 
 ### Checking That a List Is Not Empty
-
 
 ```python
 requested_toppings=[]
@@ -149,7 +142,6 @@ else:
 ```
 
 ### Using Multiple Lists
-
 
 ```python
 available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']

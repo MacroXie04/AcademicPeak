@@ -1,6 +1,8 @@
 import os
 from django.conf import settings
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
+
 
 class AcademyDirectoryManager:
     def __init__(self, directory_path=None):
@@ -38,6 +40,7 @@ class AcademyDirectoryManager:
                 unique_items.add(item_name)
 
         return {"items": list(unique_items)}
+
 
 # 使用示例
 if __name__ == '__main__':

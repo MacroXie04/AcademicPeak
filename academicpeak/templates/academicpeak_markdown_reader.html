@@ -5,6 +5,33 @@
     {{ file_name }} - Markdown
 {% endblock %}
 
+{% block style %}
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            font-family: 'CustomFont', sans-serif;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+                font-family: 'CustomFont', sans-serif;
+            }
+
+        }
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('{% static 'fonts/JetBrainsMono-Regular.woff2' %}') format('woff2'),
+            url('{% static 'fonts/JetBrainsMono-Regular.woff2' %}') format('woff');
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
     <div style="color: #221f1f !important;" class="navbars">
         <nav style="color: #221f1f !important;" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -25,15 +52,4 @@
         {% endif %}
     </article>
 
-    <footer class="footer-1 bg-light text-dark">
-        <div class="container">
-            <div class="copyright text-center">
-                <hr/>
-                <p class="small">&copy; 2023, Academic Peak - <a
-                        target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
-                        title="中华人民共和国工业和信息化部要求公布内容">京ICP备2023015619号</a></p>
-            </div>
-
-        </div>
-    </footer>
 {% endblock %}

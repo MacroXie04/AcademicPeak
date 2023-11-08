@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 import markdown2
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
+
 class University(models.Model):
     university_rank = models.IntegerField()
     university_name = models.CharField(max_length=30)
@@ -11,5 +12,3 @@ class University(models.Model):
     university_enrollment = models.IntegerField()
     university_link = models.CharField(max_length=100)
     university_photo_link = models.CharField(max_length=100)
-
-

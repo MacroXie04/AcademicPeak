@@ -4,7 +4,6 @@
 
 ### Creating and Using a Class
 
-
 ```python
 class Dog():
     def __init__(self, name, age):
@@ -20,10 +19,11 @@ class Dog():
 
 ### The  __init__()  Method
 
->The __init__() method is a special method in Python used for initialization when creating an object. It acts as a constructor and is automatically called during the instantiation process of a class.
+> The __init__() method is a special method in Python used for initialization when creating an object. It acts as a
+> constructor and is automatically called during the instantiation process of a class.
 
->When you create a new object using a class, the __init__() method is automatically invoked, allowing you to perform initial setup for the object. This method can take parameters and use them to assign values to the object's attributes.
-
+> When you create a new object using a class, the __init__() method is automatically invoked, allowing you to perform
+> initial setup for the object. This method can take parameters and use them to assign values to the object's attributes.
 
 ```python
 class Person:
@@ -36,16 +36,19 @@ print(person1.name)
 print(person1.age)
 ```
 
->In the above example, the Person class has an __init__() method that takes two parameters: name and age. When initializing the object, the passed values are used to assign values to the object's name and age attributes.
+> In the above example, the Person class has an __init__() method that takes two parameters: name and age. When
+> initializing the object, the passed values are used to assign values to the object's name and age attributes.
 
->Note that the first parameter of the __init__() method is typically self, which represents the current instance of the object. Within the method, self is used to access and manipulate the object's attributes.
+> Note that the first parameter of the __init__() method is typically self, which represents the current instance of the
+> object. Within the method, self is used to access and manipulate the object's attributes.
 
->In summary, the __init__() method allows you to perform initialization operations and assign initial values to the object's attributes when creating an object.
+> In summary, the __init__() method allows you to perform initialization operations and assign initial values to the
+> object's attributes when creating an object.
 
 ### Making an Instance from a Class
 
->Define the class: Start by defining the class using the class keyword and give it a name. Inside the class, you can define attributes and methods that describe the behavior of the objects created from the class.
-
+> Define the class: Start by defining the class using the class keyword and give it a name. Inside the class, you can
+> define attributes and methods that describe the behavior of the objects created from the class.
 
 ```python
 class MyClass:
@@ -58,8 +61,9 @@ class MyClass:
         pass
 ```
 
->Create an instance: To create an instance (also known as an object) of the class, you call the class name as if it were a function, passing any required arguments to the constructor method (__init__ in Python). The constructor method initializes the instance with the provided values.
-
+> Create an instance: To create an instance (also known as an object) of the class, you call the class name as if it
+> were a function, passing any required arguments to the constructor method (__init__ in Python). The constructor method
+> initializes the instance with the provided values.
 
 ```python
 # Create an instance of MyClass
@@ -68,7 +72,6 @@ class MyClass:
 ```
 
 > Use the instance: Once the instance is created, you can access its attributes and methods using the dot notation (.).
-
 
 ```python
 # Access attributes
@@ -82,7 +85,6 @@ my_object.my_method()
 ## Working with Classes and Instances
 
 ### The Car Class
-
 
 ```python
 class Car():
@@ -100,7 +102,6 @@ print(my_new_car.get_descriptive_name())
 ```
 
 ### Setting a Default Value for an Attribute
-
 
 ```python
 class Car():
@@ -123,7 +124,6 @@ my_new_car.read_odometer()
 ```
 
 ### Modifying Attribute Values
-
 
 ```python
 class Example():
@@ -152,10 +152,11 @@ Example.print_data()
 
 ## Inheritance
 
->In Python, when defining a child class, you can override the __init__() method of the parent class by defining a new __init__() method in the child class. This allows you to customize the initialization process for the child class.
+> In Python, when defining a child class, you can override the __init__() method of the parent class by defining a new _
+_init__() method in the child class. This allows you to customize the initialization process for the child class.
 
->The __init__() method is a special method in Python classes that gets called automatically when an object is created from the class. It is used to initialize the attributes of the object.
-
+> The __init__() method is a special method in Python classes that gets called automatically when an object is created
+> from the class. It is used to initialize the attributes of the object.
 
 ```python
 class ParentClass:
@@ -169,19 +170,22 @@ class ChildClass(ParentClass):
         self.attribute3 = attribute3
 ```
 
->In the example above, ChildClass is a child class that inherits from ParentClass. The __init__() method in the child class takes three arguments: attribute1, attribute2, and attribute3.
+> In the example above, ChildClass is a child class that inherits from ParentClass. The __init__() method in the child
+> class takes three arguments: attribute1, attribute2, and attribute3.
 
->To initialize the attributes attribute1 and attribute2 inherited from the parent class, we call the __init__() method of the parent class using the super() function. This ensures that the initialization code in the parent class is executed. Then, we initialize the attribute3 specific to the child class.
+> To initialize the attributes attribute1 and attribute2 inherited from the parent class, we call the __init__() method
+> of the parent class using the super() function. This ensures that the initialization code in the parent class is
+> executed. Then, we initialize the attribute3 specific to the child class.
 
->By using super().__init__(attribute1, attribute2), we pass the values of attribute1 and attribute2 to the parent class constructor, allowing it to initialize those attributes before adding the child class-specific attribute.
-
+> By using super().__init__(attribute1, attribute2), we pass the values of attribute1 and attribute2 to the parent class
+> constructor, allowing it to initialize those attributes before adding the child class-specific attribute.
 
 ```python
 obj = ChildClass('value1', 'value2', 'value3')
 ```
 
->This will create an object of ChildClass and initialize its attributes attribute1, attribute2, and attribute3 with the corresponding values value1, value2, and value3.
-
+> This will create an object of ChildClass and initialize its attributes attribute1, attribute2, and attribute3 with the
+> corresponding values value1, value2, and value3.
 
 ```python
 # Example

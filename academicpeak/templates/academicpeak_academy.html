@@ -14,7 +14,7 @@
                         <img src="{% static 'img/Academic Peak Logo web.svg' %}" height="100px">
                     </div>
                     <h1 style="color: #fff!important">Academy - Academic Peak</h1>
-                    <p class="lead">Using the world's most advance AI technology Generative Pretraining Transformer to accelerate your study </p>
+                    <p class="lead">Assemble online content and online classes. </p>
                     <a style="color: #ffffff !important;" href="{% url 'academic_peak_mainpage' %}"
                        class="btn btn-outline-primary btn-lg mt-4">Academic Peak Home Page</a>
                 </div>
@@ -22,26 +22,7 @@
         </div>
     </div>
 
-    {% for folder in folder_data %}
-        <div class="container">
-            <div style="padding-top: 3rem !important; padding-bottom: 3rem !important" class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="header">
-                        <h2 style="font-size: 46px !important;" id="modals">{{ folder.name }}</h2>
-                        {% for item in folder.items %}
-                            <a href="{% url 'academic_peak_academy_study' folder.name item %}" target="_blank">
-                                <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">- {{ item }}</p>
-                            </a>
-                        {% endfor %}
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    {% endfor %}
-
-        <footer class="footer-1 bg-light text-dark">
+    <footer class="footer-1 bg-light text-dark">
         <div class="container">
             <div class="copyright text-center">
                 <hr/>

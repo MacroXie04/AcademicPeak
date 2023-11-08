@@ -2,7 +2,8 @@
 
 ### Initialization
 
-An array is an object; therefore, the keyword new must be used in its creation. The size of an array remains fixed once it has been created. 
+An array is an object; therefore, the keyword new must be used in its creation. The size of an array remains fixed once
+it has been created.
 
 ```java
 //Example of creates an arrey of 25 double values and assigns the reference data to this array
@@ -73,7 +74,9 @@ Public static void changeEven(int[] arr){
 
 ### Arrays as Parameters
 
-In Java, when an array is passed as a parameter to a function, it is typically passed by reference, which means that the function uses the address of the original array instead of a copy of the array. This means that the function can modify the original array directly, thereby affecting the original array. 
+In Java, when an array is passed as a parameter to a function, it is typically passed by reference, which means that the
+function uses the address of the original array instead of a copy of the array. This means that the function can modify
+the original array directly, thereby affecting the original array.
 
 ```java
 //Example
@@ -96,7 +99,10 @@ printArray(1, 2, 3, 4, 5);
 
 ### Array Lists
 
-Unlike an array, which has a fixed size once it is created, an array list can change its size at runtime. When an element is added to an array list, it is appended to the end of the list. If the array list is already full, it will automatically allocate additional memory to accommodate the new element. Similarly, when an element is removed from an array list, the list automatically adjusts its size to reflect the new number of elements.
+Unlike an array, which has a fixed size once it is created, an array list can change its size at runtime. When an
+element is added to an array list, it is appended to the end of the list. If the array list is already full, it will
+automatically allocate additional memory to accommodate the new element. Similarly, when an element is removed from an
+array list, the list automatically adjusts its size to reflect the new number of elements.
 
 ```java
 import java.util.ArrayList;
@@ -163,7 +169,8 @@ print(numbers)
 
 ### Two-Dimensional Arrays
 
-A two-dimensional array (matrix) is often the data structure of choice for object like board games, tables of values, theater seats, and mazes. 
+A two-dimensional array (matrix) is often the data structure of choice for object like board games, tables of values,
+theater seats, and mazes.
 
 ```java
 // Example

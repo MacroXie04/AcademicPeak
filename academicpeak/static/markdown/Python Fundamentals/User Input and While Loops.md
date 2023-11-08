@@ -2,14 +2,12 @@
 
 ## How the input( ) Function Works
 
-
 ```python
 message = input("Input a Value")
 print(f"User input value is {message}")
 ```
 
 ### Using int( ) to Accept Numerical Input
-
 
 ```python
 age = int(input("Type your age here"))
@@ -23,7 +21,6 @@ else:
 
 ### The Modilo Operator
 
-
 ```python
 number = int(input('Type a number here'))
 if number % 2 == 2:
@@ -34,10 +31,10 @@ else:
 
 ## Introducing while Loops
 
->The for loop takes a collection of items and executes a block of code once for each item in the collection. In contrast, the while loop runs as long as, or while, a certain condition is true.
+> The for loop takes a collection of items and executes a block of code once for each item in the collection. In
+> contrast, the while loop runs as long as, or while, a certain condition is true.
 
 ### The while Loop in Action
-
 
 ```python
 current_number = 1
@@ -49,14 +46,12 @@ while current_number <= 5:
 
 ### Letting the User Choose When to Quit
 
-
 ```python
 message = ""
 while message != "quit":
     message = input("prompt")
     print(message)
 ```
-
 
 ```python
 message = ""
@@ -68,7 +63,6 @@ while message != "quit":
 ```
 
 ### Using a Flag
-
 
 ```python
 active = True
@@ -84,7 +78,6 @@ while active:
 
 ### Using break to Exit a Loop
 
-
 ```python
 active = True
 while active:
@@ -99,7 +92,6 @@ while active:
 
 ### Using continue in a Loop
 
-
 ```python
 current_number = 0
 while current_number < 10:
@@ -111,7 +103,6 @@ while current_number < 10:
 
 ### Avoiding Infinite Loops
 
-
 ```python
 # This loop runs forever! x= 1
 # while x <= 5:
@@ -121,7 +112,6 @@ while current_number < 10:
 ## Using a while Loop with Lists and Dictionaries
 
 ### Moving Items from One List to Another
-
 
 ```python
 # Start with users that need to be verified,
@@ -149,7 +139,6 @@ print(f"\n{confirmed_users}")
 
 ### Removing All Instances of Specific Values from a List
 
-
 ```python
 pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
 print(pets)
@@ -160,7 +149,6 @@ print(pets)
 ```
 
 ### Filling a Dictionary with User Input
-
 
 ```python
 responses = {}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Academic Peak" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="Academic Peak">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/var/www/academicpeak" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/var/www/venv" />
+            <excludedPath path="/var/www/static" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="OpenVPN">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root" local="$PROJECT_DIR$/OpenVPN" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/root/.ssh" />
+            <excludedPath path="/root/.wget-hsts" />
+            <excludedPath path="/root/snap" />
+            <excludedPath path="/root/.cache" />
+            <excludedPath path="/root/.pip" />
+            <excludedPath path="/root/.local" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

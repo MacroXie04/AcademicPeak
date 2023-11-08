@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +25,8 @@ SECRET_KEY = 'django-insecure-iu&l%zuau!tnh!mri1g(ph)!h(2+u_@5(10^o^^*kbqci)q=oj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hongzhe.site', 'www.hongzhe.site', 'hongzhe.site:8000', 'academicpeak.cn' ,'www.academicpeak.cn' , '127.0.0.1']
+ALLOWED_HOSTS = ['hongzhe.site', 'www.hongzhe.site', 'hongzhe.site:8000', 'academicpeak.cn', 'www.academicpeak.cn',
+                 '127.0.0.1']
 
 # Cache settings
 CACHES = {
@@ -34,7 +34,6 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
-
 
 # Application definition
 
@@ -81,8 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hongzhe.wsgi.application'
 
-NOTEBOOK_ROOT = 'jupyternotebook/notebook.ipynb'
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -92,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -112,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -123,7 +118,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

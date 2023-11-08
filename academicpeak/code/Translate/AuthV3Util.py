@@ -14,6 +14,8 @@ import uuid
     @param appSecret 您的应用密钥
     @param paramsMap 请求参数表
 '''
+
+
 def addAuthParams(appKey, appSecret, params):
     q = params.get('q')
     if q is None:
@@ -27,6 +29,7 @@ def addAuthParams(appKey, appSecret, params):
     params['signType'] = 'v3'
     params['sign'] = sign
 
+
 '''
     计算鉴权签名 -
     计算方式 : sign = sha256(appKey + input(q) + salt + curtime + appSecret)
@@ -37,6 +40,8 @@ def addAuthParams(appKey, appSecret, params):
     @param curtime   当前时间戳(秒)
     @return 鉴权签名sign
 '''
+
+
 def calculateSign(appKey, appSecret, q, salt, curtime):
     strSrc = appKey + getInput(q) + salt + curtime + appSecret
     return encrypt(strSrc)

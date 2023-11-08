@@ -2,7 +2,9 @@
 
 ### The **object** class
 
-The **object** class is the root of the class hierarchy. Every class in Java has **object** as a superclass, either directly or indirectly. If you don't explicitly specify a superclass for a class, it will automatically extend the **object** class. 
+The **object** class is the root of the class hierarchy. Every class in Java has **object** as a superclass, either
+directly or indirectly. If you don't explicitly specify a superclass for a class, it will automatically extend the *
+*object** class.
 
 - **toString()**
 
@@ -77,7 +79,8 @@ public class Main {
 
 ### The String class
 
-The String class in Java represents a sequence of characters (String). It is part of the java.lang package, which means it is auto magically imported and does not need an explicit import statement.
+The String class in Java represents a sequence of characters (String). It is part of the java.lang package, which means
+it is auto magically imported and does not need an explicit import statement.
 
 **String objects in Java are immutable, meaning that once String object is created, its content cannot be changed.**
 
@@ -103,8 +106,11 @@ Ststem.out.println(Str1+3+4);
 
 ### subString
 
-1. **`substring(int beginIndex)`**: Returns a new string that is a substring of the original string starting from the specified **`beginIndex`** to the end of the original string.
-2. **`substring(int beginIndex, int endIndex)`**: Returns a new string that is a substring of the original string starting from the specified **`beginIndex`** up to, but not including, the character at index **`endIndex`**. The character at index **`endIndex`** is not included in the resulting substring.
+1. **`substring(int beginIndex)`**: Returns a new string that is a substring of the original string starting from the
+   specified **`beginIndex`** to the end of the original string.
+2. **`substring(int beginIndex, int endIndex)`**: Returns a new string that is a substring of the original string
+   starting from the specified **`beginIndex`** up to, but not including, the character at index **`endIndex`**. The
+   character at index **`endIndex`** is not included in the resulting substring.
 
 ```java
 String original = "Hello,World!";
@@ -128,7 +134,8 @@ System.out.println(sub3);
 
 ## String.equal
 
-The **`equals()`** method of the **`String`** class is used to compare whether the contents of two string objects are equal.
+The **`equals()`** method of the **`String`** class is used to compare whether the contents of two string objects are
+equal.
 
 ```java
 String str1 = "Hello, World!";
@@ -148,8 +155,10 @@ System.out.println(isEqualIgnoreCase);
 
 ### String indexOf
 
-1. This method takes a single argument, which is a character. It returns the index of the first occurrence of that character in the string, or -1 if the character is not found.
-2. This method takes a single argument, which is a substring. It returns the index of the first occurrence of that substring in the string, or -1 if the substring is not found.
+1. This method takes a single argument, which is a character. It returns the index of the first occurrence of that
+   character in the string, or -1 if the character is not found.
+2. This method takes a single argument, which is a substring. It returns the index of the first occurrence of that
+   substring in the string, or -1 if the substring is not found.
 
 ```java
 //Example

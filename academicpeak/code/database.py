@@ -1,5 +1,6 @@
 import os
 import django
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 django.setup()
 from tabulate import tabulate
@@ -8,6 +9,7 @@ import pandas as pd
 
 
 def print_university():
+    """Print the universities in the database"""
     universities = University.objects.all().order_by('university_rank')
     university_data = []
     for uni in universities:
@@ -20,6 +22,7 @@ def print_university():
 
 
 def return_university_list():
+    """Return the universities in the database"""
     universities = University.objects.all().order_by('university_rank')
     university_data = []
     for uni in universities:
@@ -30,6 +33,7 @@ def return_university_list():
 
 
 def return_university_dict():
+    """Return the universities in the database as a dictionary"""
     universities = University.objects.all().order_by('university_rank')
     university_data = {}
     for uni in universities:
@@ -47,6 +51,7 @@ def return_university_dict():
 
 
 def return_university_table():
+    """Return the universities in the database as a table"""
     universities = University.objects.all().order_by('university_rank')
     university_data = []
     for uni in universities:
@@ -59,6 +64,7 @@ def return_university_table():
 
 
 def import_university_form_excel(excel_path):
+    """Import the excel file to the database"""
     excel_name = os.path.basename(excel_path)
     user_confirm = input(f"add or overwritten the database by this excel({excel_name}) (add/over): ")
     if user_confirm == 'over':
@@ -82,7 +88,7 @@ def import_university_form_excel(excel_path):
                                                        university_global_score=university_global_score,
                                                        university_enrollment=university_enrollment,
                                                        university_link=university_link,
-                                                       university_photo_link=university_photo_link,)
+                                                       university_photo_link=university_photo_link, )
                 print(f'Added {university_name} to the database.')
             print(f'Imported {excel_name} to the database.')
             print(f'Adjusting the university rank...')
@@ -109,7 +115,7 @@ def import_university_form_excel(excel_path):
                                                    university_global_score=university_global_score,
                                                    university_enrollment=university_enrollment,
                                                    university_link=university_link,
-                                                   university_photo_link=university_photo_link,)
+                                                   university_photo_link=university_photo_link, )
             print(f'Added {university_name} to the database.')
         print(f'Imported {excel_name} to the database.')
         print(f'Adjusting the university rank...')
@@ -119,12 +125,15 @@ def import_university_form_excel(excel_path):
 
 
 def delete_all_universities():
+    """Delete all universities in the database."""
     universities = University.objects.all()
     universities.delete()
     print(f'Deleted all universities in the database.')
 
 
 def add_university_input():
+    """Add a new university to the database."""
+    print(f'Adding a new university to the database.')
     university_rank = input("university_rank: ")
     university_name = input("university_name: ")
     university_country = input("university_country: ")
@@ -144,6 +153,7 @@ def add_university_input():
 
 
 def adjust_university_rank():
+    """Adjust the university rank based on the global score."""
     universities = University.objects.all().order_by('-university_global_score')
     rank = 1
     for uni in universities:
@@ -155,10 +165,10 @@ def adjust_university_rank():
 
 # 内部调试用
 if __name__ == '__main__':
-    delete_all_universities()
+    # delete_all_universities()
     # 设置Excel文件路径
     # excel_path = r'D:\hongzhe.site\academicpeak\database.xlsx'
-    excel_path = r'C:\Users\xieho\PycharmProjects\hongzhe.site\academicpeak\code\database.xlsx'
+    excel_path = r'C:\Users\xieho\PycharmProjects\Academic-Peak\academicpeak\code\database.xlsx'
     # 读取Excel文件导入数据库
     import_university_form_excel(excel_path)
     # print_university()

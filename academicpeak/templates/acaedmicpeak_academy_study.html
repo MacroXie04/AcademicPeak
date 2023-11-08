@@ -29,70 +29,8 @@
         </video>
     </div>
 
-    <div class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 0px !important; padding: 20px;">
-    <div id="chat-container">
-        <div id="user-input" style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 10px">
-            <input type="text" id="input-text" style="flex: 1; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; box-sizing: border-box;" placeholder="{{ placeholder }}" spellcheck="false" data-ms-editor="true">
-            <button id="send-button" style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
-                Send
-            </button>
-        </div>
-        <div id="chat-log" style="margin-bottom: 20px;"></div>
     </div>
-</div>
+
 
     <script src="{% static 'js/jquery.js' %}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#send-button').click(function () {
-                sendMessage();
-            });
-
-            $('#input-text').keypress(function (event) {
-                if (event.keyCode === 13) {  // Enter key code
-                    event.preventDefault();
-                    sendMessage();
-                }
-            });
-
-            function sendMessage() {
-                var inputText = $('#input-text').val();
-                var userMessage = '<div class="user-message"><strong>User:</strong> ' + inputText + '</div>';
-
-                $('#chat-log').prepend(userMessage);
-
-                $.ajax({
-                    type: 'POST',
-                    url: '{% url "academic_peak_academy_study" subject=subject item_code=item_code %}', // Replace with your view's URL
-                    data: {
-                        input_text: inputText,
-                        csrfmiddlewaretoken: '{{ csrf_token }}'
-                    },
-                    beforeSend: function () {
-                        var thinkingMessage = '<div class="thinking-message"><strong>Academic Chat:</strong> Generating response</div>';
-                        $('#chat-log').prepend(thinkingMessage);
-                    },
-                    success: function (data) {
-                        $('.thinking-message').remove();
-                        var botMessage = '<div class="bot-message"><strong>Academic Chat:</strong> ' + data.response + '</div>';
-                        $('#chat-log').prepend(botMessage);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-                $('#input-text').val('');
-            }
-        });
-
-    </script>
-    <style>
-        .user-message, .bot-message, .thinking-message {
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-    </style>
 {% endblock %}

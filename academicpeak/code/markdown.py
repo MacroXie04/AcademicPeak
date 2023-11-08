@@ -1,5 +1,6 @@
 import os
 from django.conf import settings
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
 
@@ -41,5 +42,3 @@ if __name__ == "__main__":
     markdown_manager = MarkdownDirectoryManager()
     folder_data = markdown_manager.get_folder_data()
     print(folder_data)
-
-

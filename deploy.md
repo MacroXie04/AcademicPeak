@@ -1,19 +1,37 @@
 # deploy
+
 ## Django project path
->cd /var/www/hongzhe
+
+> cd /var/www/hongzhe
+
 ## Enter virtualenv
->source bin/activate
+
+> source bin/activate
+
 ## Recollect static files
->python manage.py collectstatic
+
+> python manage.py collectstatic
+
 ## Restart uwsgi
->uwsgi --reload uwsgi.pid
+
+> uwsgi --reload uwsgi.pid
+
 ## Reload nginx
->sudo nginx -s reload
+
+> sudo nginx -s reload
+
 ## Start nginx
->sudo nginx
+
+> sudo nginx
+
 ## Stop nginx
->sudo nginx -s stop
+
+> sudo nginx -s stop
+
 ## Start web server
->uwsgi --ini uwsgi.ini
+
+> uwsgi --ini uwsgi.ini
+
 ## Stop web server
->uwsgi --stop uwsgi.pid
+
+> uwsgi --stop uwsgi.pid

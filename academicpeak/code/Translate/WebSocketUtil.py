@@ -7,6 +7,8 @@ import websocket
 """
     初始化websocket连接
 """
+
+
 def init_connection(url):
     ws = websocket.WebSocketApp(url, on_open=ClientThread.on_open, on_message=ClientThread.on_message,
                                 on_close=ClientThread.on_closed, on_error=ClientThread.on_error)
@@ -19,6 +21,8 @@ def init_connection(url):
 """
     初始化websocket连接, 并附带相关参数
 """
+
+
 def init_connection_with_params(url, params):
     url_prams_builder = urllib.parse.urlencode(params)
     url = url + '?' + url_prams_builder
@@ -28,6 +32,8 @@ def init_connection_with_params(url, params):
 """
     发送text message
 """
+
+
 def send_text_message(ws, message):
     ws.send(message)
     print("send text message: " + message)
@@ -36,6 +42,8 @@ def send_text_message(ws, message):
 """
     发送binary message
 """
+
+
 def send_binary_message(ws, message):
     ws.send(message, websocket.ABNF.OPCODE_BINARY)
     print("send binary message length: " + str(len(message)))

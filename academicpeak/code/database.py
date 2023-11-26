@@ -88,7 +88,8 @@ def import_university_form_excel(excel_path):
                                                        university_global_score=university_global_score,
                                                        university_enrollment=university_enrollment,
                                                        university_link=university_link,
-                                                       university_photo_link=university_photo_link, )
+                                                       university_photo_link=university_photo_link
+                                                       )
                 print(f'Added {university_name} to the database.')
             print(f'Imported {excel_name} to the database.')
             print(f'Adjusting the university rank...')
@@ -147,7 +148,7 @@ def add_university_input():
                                            university_global_score=university_global_score,
                                            university_enrollment=university_enrollment,
                                            university_link=university_link,
-                                           university_photo_link=university_photo_link)
+                                           university_photo_link=university_photo_link, )
     adjust_university_rank()
     print(f'Added {university_name} to the database.')
 

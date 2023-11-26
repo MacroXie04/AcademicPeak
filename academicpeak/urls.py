@@ -16,5 +16,4 @@ urlpatterns = [
          name='academic_peak_academy_study'),
     path('academy/', views.academic_peak_academy, name='academic_peak_academy'),
     path('gratitude/', views.academic_peak_gratitude, name='academic_peak_gratitude'),
-
 ]

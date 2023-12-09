@@ -23,10 +23,7 @@
             {% csrf_token %}
             <textarea
                     style="margin-bottom: 8px; width: 100%; height: 250px; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box;"
-                    placeholder="placeholder"
-                    name="source_text" rows="4" cols="50"
-                    value="{{ request.POST.source_text|default:'' }}">
-            </textarea>
+                    placeholder="Put your text here!" name="source_text" rows="4" cols="50"></textarea>
 
             <button type="button"
                     style="background-color: #f5f5f5; color: #221f1f; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;"

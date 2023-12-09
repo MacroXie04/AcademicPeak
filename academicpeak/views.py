@@ -26,17 +26,19 @@ def academic_peak_academy(request):
         # Store academy_data in cache for 1 hour (in seconds)
         cache.set('academy_data', academy_data, 1)
 
+    print(academy_data)
+
     return render(request, 'academicpeak_academy.html', {'folder_data': academy_data})
 
 
 def academic_peak_academy_study(request, subject, item_code):
-    video_txt_path = os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'academy', subject, f'{item_code}.txt')
-
     return render(request, 'acaedmicpeak_academy_study.html',
                   context={'subject': subject, 'item_code': item_code})
 
 
 def academic_peak_markdown(request):
+    """Render markdown page"""
+
     # Try to get folder_data from cache
     folder_data = cache.get('folder_data')
 
@@ -86,6 +88,7 @@ def academic_peak_legal(request):
 
 
 def cache_university_ranking():
+    """Cache the university ranking data."""
     universities_rank = cache.get('universities_rank')
     if universities_rank is None:
         universities_rank = database.return_university_dict()
@@ -94,6 +97,7 @@ def cache_university_ranking():
 
 
 def academic_peak_university_ranking(request):
+    """The function returns the ranking of universities."""
     universities_rank = cache_university_ranking()
     return render(request, 'academicpeak_ranking.html', {'universities_rank': universities_rank})
 

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-iu&l%zuau!tnh!mri1g(ph)!h(2+u_@5(10^o^^*kbqci)q=oj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hongzhe.site', 'www.hongzhe.site', 'hongzhe.site:8000', 'academicpeak.cn', 'www.academicpeak.cn',
+ALLOWED_HOSTS = ['hongzhe.site', 'www.hongzhe.site', 'localhost', 'academicpeak.cn', 'www.academicpeak.cn',
                  '127.0.0.1']
 
 # Cache settings

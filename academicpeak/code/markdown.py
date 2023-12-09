@@ -5,10 +5,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 
 
 class MarkdownDirectoryManager:
+    """Define the MarkdownDirectoryManager class for managing Markdown directories"""
     def __init__(self, directory_path=None):
+        """Constructor which creates a new instance of the Manager class if no directory path is provided"""
         self.directory_path = directory_path or os.path.join(settings.BASE_DIR, 'academicpeak', 'static', 'markdown')
 
     def get_folder_data(self):
+        """Retrieve all subdirectories under the specified Markdown directory"""
         if not os.path.exists(self.directory_path) or not os.path.isdir(self.directory_path):
             print("Markdown directory does not exist.")
             return []
@@ -19,7 +22,7 @@ class MarkdownDirectoryManager:
 
         for folder_name in folder_list:
             items = self.get_items_in_folder(folder_name)["items"]
-            sorted_items = sorted(items)  # Sort items here
+            sorted_items = sorted(items)
             folder_data.append({
                 "name": folder_name,
                 "items": sorted_items
@@ -28,6 +31,7 @@ class MarkdownDirectoryManager:
         return folder_data
 
     def get_items_in_folder(self, folder_name):
+        """Retrieve all files under the specified folder"""
         folder_path = os.path.join(self.directory_path, folder_name)
         if not os.path.exists(folder_path) or not os.path.isdir(folder_path):
             print(f"Folder '{folder_name}' does not exist.")

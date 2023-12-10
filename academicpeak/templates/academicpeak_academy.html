@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    
+
     {% for folder in folder_data %}
         <div class="container">
             <div style="padding-top: 3rem !important; padding-bottom: 3rem !important" class="row">
@@ -28,7 +28,8 @@
                         <h2 style="font-size: 46px !important;" id="modals">{{ folder.name }}</h2>
                         {% for item in folder.items %}
                             <a href="{% url 'academic_peak_academy_study' folder.name item %}" target="_blank">
-                                <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">- {{ item }}</p>
+                                <p style="font-size: 25px !important; margin-left: 7px !important; margin-bottom: 0.2rem !important;">
+                                    - {{ item }}</p>
                             </a>
                         {% endfor %}
                     </div>

@@ -23,7 +23,8 @@ class Dog():
 > constructor and is automatically called during the instantiation process of a class.
 
 > When you create a new object using a class, the __init__() method is automatically invoked, allowing you to perform
-> initial setup for the object. This method can take parameters and use them to assign values to the object's attributes.
+> initial setup for the object. This method can take parameters and use them to assign values to the object's
+> attributes.
 
 ```python
 class Person:

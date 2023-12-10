@@ -1,5 +1,7 @@
 import os
+
 import django
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 django.setup()
 from tabulate import tabulate

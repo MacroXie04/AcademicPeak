@@ -112,9 +112,11 @@ print(magicians)
 ### Avoiding Indentation Errors
 
 > Python uses indentation to determine when one line of code is connected to the line above it. In the previous
-> examples, the lines that printed messages to individual magicians were part of the for loop because they were indented.
+> examples, the lines that printed messages to individual magicians were part of the for loop because they were
+> indented.
 > Python’s use of indentation makes code very easy to read. Basically, it uses whitespace to force you to write neatly
-> formatted code with a clear visual structure. In longer Python programs, you’ll notice blocks of code indented at a few
+> formatted code with a clear visual structure. In longer Python programs, you’ll notice blocks of code indented at a
+> few
 > different levels. These indentation levels help you gain a general sense of the overall program’s organization.
 
 ```python
@@ -148,7 +150,8 @@ for magician in magicians
 ## Making Numerical Lists
 
 > Many reasons exist to store a set of numbers. For example, you’ll need to keep track of the positions of each
-> character in a game, and you might want to keep track of a player’s high scores as well. In data visualizations, you’ll
+> character in a game, and you might want to keep track of a player’s high scores as well. In data visualizations,
+> you’ll
 > almost always work with sets of numbers, such as temperatures, distances, population sizes, or latitude and longitude
 > values, among other types of numerical sets.
 

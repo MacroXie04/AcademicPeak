@@ -20,11 +20,14 @@ greet_user('Hongzhe')
 ### Arguments and Parameters
 
 > In the preceding greet_user() function, we defined greet_user() to require a value for the variable username. Once we
-> called the function and gave it the information (a person’s name), it printed the right greeting. The variable username
-> in the definition of greet_user() is an example of a parameter, a piece of information the function needs to do its job.
+> called the function and gave it the information (a person’s name), it printed the right greeting. The variable
+> username
+> in the definition of greet_user() is an example of a parameter, a piece of information the function needs to do its
+> job.
 > The value 'jesse' in greet_user('jesse') is an example of an argument. An argument is a piece of information that is
 > passed from a function call to a function. When we call the function, we place the value we want the function to work
-> with in parentheses. In this case the argument 'jesse' was passed to the function greet_user(), and the value was stored
+> with in parentheses. In this case the argument 'jesse' was passed to the function greet_user(), and the value was
+> stored
 > in the parameter username.
 
 ## Passing Arguments
@@ -77,7 +80,8 @@ describe_pet()
 ## Return Values
 
 > A function doesn’t always have to display its output directly. Instead, it can process some data and then return a
-> value or set of values. The value the function returns is called a return value. The return statement takes a value from
+> value or set of values. The value the function returns is called a return value. The return statement takes a value
+> from
 > inside a function and sends it back to the line that called the function. Return values allow you to move much of your
 > program’s grunt work into functions, which can simplify the body of your program.
 

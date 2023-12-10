@@ -1,10 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
-import markdown2
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-
 
 class University(models.Model):
+    """University model"""
+    university_id = models.IntegerField(primary_key=True)
     university_rank = models.IntegerField()
     university_name = models.CharField(max_length=30)
     university_country = models.CharField(max_length=30)

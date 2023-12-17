@@ -1,4 +1,5 @@
 import requests
+import langid
 from langdetect import detect
 from academicpeak.code.Translate.AuthV3Util import addAuthParams
 APP_KEY = '3826d1e6c939ecaf'
@@ -15,24 +16,16 @@ def translator(text):
     return generate_translation(text, language_from, language_to)
 
 
-def judge_language(s: str) -> tuple[str, str] | str:
-    """ Check if the string is empty or only contains whitespace; return 'unknown' if true."""
-    if not s.strip():
-        return 'unknown', 'unknown'
+def judge_language(s: str) -> tuple[str, str]:
+    # Detect the language of the input string using langid
+    detected_language, _ = langid.classify(s)
 
-    try:
-        # Detect the language of the input string.
-        detected_lang = detect(s)
-        # Return corresponding language codes for Chinese to English or English to Chinese translation.
-        if detected_lang == 'zh-cn' or detected_lang == 'zh-tw':
-            return 'zh-CHS', 'en'
-        elif detected_lang == 'en':
-            return 'en', 'zh-CHS'
-        else:
-            # Return 'unknown' for languages other than Chinese and English.
-            return 'unknown', 'unknown'
-    except:
-        # Return 'unknown' in case of any exceptions during language detection.
+    # Return corresponding language codes based on the detection
+    if detected_language == 'zh':
+        return 'zh-CHS', 'en'
+    elif detected_language == 'en':
+        return 'en', 'zh-CHS'
+    else:
         return 'unknown', 'unknown'
 
 
@@ -54,3 +47,9 @@ def doCall(url, header, params, method):
         return requests.get(url, params)
     elif 'post' == method:
         return requests.post(url, params, header)
+
+
+if __name__ == '__main__':
+    a = judge_language("fuck you")
+    detected_language = detect("English")
+    print(detected_language)

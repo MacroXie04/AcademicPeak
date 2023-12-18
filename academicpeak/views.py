@@ -59,13 +59,14 @@ def academic_peak_markdown_reader(request, md_directory, md_name):
 
 def academic_peak_translate(request):
     """Process User input from POST request and Translate the text by Youdao API"""
+    source_text = None
     translated_text = None
     if request.method == 'POST':
         source_text = request.POST.get('source_text', '')
         if source_text:
             translated_text = translator(source_text)
     return render(request, 'academicpeak_translate.html',
-                  {'translated_text': translated_text})
+                  {'translated_text': translated_text, 'source_text': source_text})
 
 
 def academic_peak_mainpage(request):

@@ -18,22 +18,41 @@
     </div>
 
     <div class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 0px !important; padding: 20px;">
-        <form method="post" class="translation-form"
-              style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            {% csrf_token %}
-            <textarea
-                    style="margin-bottom: 8px; width: 100%; height: 250px; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box;"
-                    placeholder="Put your text here!" name="source_text" rows="4" cols="50"></textarea>
+        {% if source_text %}
+            <form method="post" class="translation-form"
+                  style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                {% csrf_token %}
+                <textarea
+                        style="margin-bottom: 8px; width: 100%; height: 250px; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box;"
+                        name="source_text" rows="4" cols="50">{{ source_text }}</textarea>
 
-            <button type="button"
-                    style="background-color: #f5f5f5; color: #221f1f; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;"
-                    id="clearBtn">Clear
-            </button>
-            <button type="submit"
-                    style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
-                Translate
-            </button>
-        </form>
+                <button type="button" id="clearBtn"
+                        style="background-color: #f5f5f5; color: #221f1f; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                    Clear
+                </button>
+                <button type="submit"
+                        style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                    Translate
+                </button>
+            </form>
+        {% else %}
+            <form method="post" class="translation-form"
+                  style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                {% csrf_token %}
+                <textarea
+                        style="margin-bottom: 8px; width: 100%; height: 250px; padding: 10px; border: 1px solid #cccccc; border-radius: 4px; resize: none; box-sizing: border-box;"
+                        placeholder="Put your text here!" name="source_text" rows="4" cols="50"></textarea>
+
+                <button type="button" id="clearBtn"
+                        style="background-color: #f5f5f5; color: #221f1f; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                    Clear
+                </button>
+                <button type="submit"
+                        style="background-color: #221f1f; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                    Translate
+                </button>
+            </form>
+        {% endif %}
         {% if translated_text %}
             <div class="translation-result"
                  style="background-color: #ffffff; border: 1px solid #cccccc; padding: 20px; border-radius: 8px;">
@@ -44,34 +63,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 获取textarea元素
-            var sourceTextArea = document.getElementsByName('source_text')[0];
-
-            // 获取Clear按钮元素
-            var clearBtn = document.getElementById('clearBtn');
-
-            // 获取用户输入的文本
-            var savedText = localStorage.getItem('savedText');
-
-            // 如果用户输入的文本存在，则将其填充回textarea中
-            if (savedText) {
-                sourceTextArea.value = savedText;
-            }
-
-            // 添加Clear按钮点击事件处理程序
-            clearBtn.addEventListener('click', function () {
-                sourceTextArea.value = '';
-                // 清除localStorage中的保存的文本
-                localStorage.removeItem('savedText');
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.querySelector('form.translation-form').submit();
+                }
             });
-
-            // 添加textarea输入事件处理程序，以在用户输入时保存文本到localStorage
-            sourceTextArea.addEventListener('input', function () {
-                var currentText = sourceTextArea.value;
-                localStorage.setItem('savedText', currentText);
+            document.getElementById('clearBtn').addEventListener('click', function () {
+                document.querySelector('textarea[name="source_text"]').value = '';
             });
         });
-
     </script>
 
 {% endblock %}

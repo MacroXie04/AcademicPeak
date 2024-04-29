@@ -1,6 +1,8 @@
 import os
 from django.conf import settings
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
+
 
 class MarkdownDirectoryManager:
     """
@@ -47,8 +49,21 @@ class MarkdownDirectoryManager:
                  os.path.isfile(os.path.join(folder_path, item))]
         return {"items": items}
 
+    def get_folder(self):
+        # Check if the markdown directory exists and is a directory; if not, return an empty list.
+        if not os.path.exists(self.directory_path) or not os.path.isdir(self.directory_path):
+            print("Markdown directory does not exist.")
+            return []
+
+        # List all directories within the directory_path.
+        folders = [folder for folder in os.listdir(self.directory_path) if
+                   os.path.isdir(os.path.join(self.directory_path, folder))]
+        return folders
+
 
 if __name__ == "__main__":
     markdown_manager = MarkdownDirectoryManager()
     folder_data = markdown_manager.get_folder_data()
     print(folder_data)
+    folder = markdown_manager.get_folder()
+    print(folder)

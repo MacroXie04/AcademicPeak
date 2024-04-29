@@ -1,12 +1,12 @@
 # Introductory Java Language Features
 
 ### Built-in Types
-
-Every identifer in a Java program has a type associated woth it. In Java there are `int` ,`double` and `Boolean` .
+Each identifier in a Java program is associated with a type. In Java, there are int, double, and Boolean types.
 
 ```java
 int i;
 //An integer
+//4 Bits, 32 bits
 //Example, 2,-3,4000
 
 boolean i;
@@ -15,21 +15,28 @@ boolean i;
 double i;
 //A double pricisionn floating-point number
 //Example, 2.718, -383848.44, 134553353
+//8Bits, 64bits
 ```
 
-### Storage of Numbers
+### Final Data Type
+The final keyword in Java is used to mark a variable as a constant. Once a final variable is assigned a value, it cannot be changed.
+```java
+final int MAX_VALUE = 100;
+//A final integer constant with the value of 100
+```
 
-The Java built-in integral type, byte, uses one byte (eight bits) of storage.
+### Type Casting
+In Java, type casting is used to convert one data type into another. It can be done implicitly or explicitly.
+```java
+int i = 10;
+double d = 3.14;
 
-The picture represents the largest positive integer that can stored using type byte: 2^7-1.
+// Type casting from int to double
+double result1 = (double) i; // result1 will be 10.0
 
-Type `int` in Java uses four bytes (4Bits, 32 bits)
-
-Type `double` in Java uses eight bytes (8Bits, 64 bits)
-
-### Final Variables
-
-A final variable or user-defined constant, identified by the keyword `final`, is a quantity whose value will not change.
+// Type casting from double to int
+int result2 = (int) d; // result2 will be 3
+```
 
 ### Arithmetic Operators
 
@@ -302,10 +309,49 @@ for (int number : numbers) {
 }
 //output: 12345
 ```
+### Reference & Primitive Data Types
 
-### String
+In Java, data types can be categorized into two main groups: primitive data types and reference data types.
 
-A String is a class that represents a sequence of characters. **Strings are immutable, which means that their values
-cannot be changed after they have been created.** Strings are often used to store text data, such as names, addresses,
-or sentences. Strings can be concatenated, compared, searched, and manipulated using various built-in methods. Strings
-are also commonly used in Java applications to handle user input and to output information to the user.
+### Reference & Primitive Data Type
+
+Primitive data types are the most basic data types provided by Java. They hold simple values and are not objects. There are eight primitive data types in Java:
+Primitive data types are stored directly in the stack memory and hold their values directly.
+
+- `int`: 32-bit signed integer. Example: `int i = 100000;`
+- `double`: 64-bit floating-point. Example: `double d = 3.14;`
+- `boolean`: Represents true or false. Example: `boolean flag = true;`
+
+Reference data types are used to refer to objects. They don't store the actual data, but they store the reference(address) to the object in memory. Examples of reference data types include:
+Reference data types are stored in the heap memory. They are created using the `new` keyword and manipulated through references.
+
+- Objects of a class: `String`, `ArrayList`, `LinkedList`, etc.
+- Arrays: `int[]`, `double[]`, `String[]`, etc.
+
+```java
+// Primitive data type example
+int primitiveValue = 10;
+System.out.println("Primitive Value: " + primitiveValue);
+
+// Reference data type example
+String referenceValue = new String("Hello");
+System.out.println("Reference Value: " + referenceValue);
+
+//Output:
+Primitive Value: 10
+Reference Value: Hello
+
+
+```
+
+
+
+
+
+
+```java
+// Primitive data type example
+int primitiveValue = 10;
+
+// Reference data type example
+String referenceValue = new String("Hello");

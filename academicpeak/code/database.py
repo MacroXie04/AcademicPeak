@@ -1,7 +1,5 @@
 import os
-
 import django
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
 django.setup()
 from tabulate import tabulate
@@ -170,7 +168,7 @@ if __name__ == '__main__':
     # delete_all_universities()
     # 设置Excel文件路径
     # excel_path = r'D:\hongzhe.site\academicpeak\database.xlsx'
-    excel_path = r'C:\Users\xieho\PycharmProjects\Academic-Peak\academicpeak\code\database.xlsx'
+    excel_path = r'C:\PycharmProjects\Academic-Peak\academicpeak\code\database.xlsx'
     # 读取Excel文件导入数据库
     import_university_form_excel(excel_path)
     # print_university()

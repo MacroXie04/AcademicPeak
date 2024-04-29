@@ -19,7 +19,6 @@ def translator(text):
 def judge_language(s: str) -> tuple[str, str]:
     # Detect the language of the input string using langid
     detected_language, _ = langid.classify(s)
-
     # Return corresponding language codes based on the detection
     if detected_language == 'zh':
         return 'zh-CHS', 'en'

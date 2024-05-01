@@ -9,7 +9,7 @@ import uuid
     curtime : 当前时间戳(秒)
     signType : 签名版本
     sign : 请求签名
-    
+
     @param appKey    您的应用ID
     @param appSecret 您的应用密钥
     @param paramsMap 请求参数表

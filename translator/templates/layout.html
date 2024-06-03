@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Academic Peak{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link href="{% static 'img/Academic Peak Logo web.svg' %}" rel="icon" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lazy.css' %}">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+    {% block style %}{% endblock %}
+
+</head>
+<body class="index">
+{% block content %}
+    <div style="background-color: #221f1f !important; padding-top: 6rem !important; padding-bottom: 6rem !important;"
+         class="page-hero bg-primary text-white" id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="emoji mb-3">
+                        <img src="{% static 'img/Academic Peak Logo web.svg' %}" height="100px">
+                    </div>
+                    <h1 style="color: #fff!important">Academic Peak</h1>
+                    <p class="lead">"Academic Peak is a leading online academic resource platform dedicated to providing
+                        comprehensive academic support and information services to researchers, students, and academic
+                        professionals worldwide. The platform aggregates high-quality papers, journals and
+                        other scholarly materials across various disciplines, aiming to facilitate knowledge sharing,
+                        academic discourse, and research collaboration."</p>
+                    <a style="color: #ffffff !important;" href="{% url 'academic_peak_about' %}"
+                       class="btn btn-outline-primary btn-lg mt-4">About Academic Peak</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 50px !important;" id="modals">Academic Peak World University Rankings 2024
+                        !</h2>
+                    <p style="font-size: 20px !important;">"Introducing the 2024 University Rankings on Academic Peak!
+                        Dive into our latest,
+                        meticulously curated list, reflecting cutting-edge research and up-to-date student feedback.
+                        Discover top-tier institutions, emerging colleges, and dynamic trends. Elevate your academic
+                        perspective with the most informed choices for 2024!"</p>
+                </div>
+                <div class="component">
+                    <a target="_blank" href="{% url 'academic_peak_university_ranking' %}">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-info"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            Get AP 2024 World University Rankings
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="intro bg-light">
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 50px !important;" id="modals">Markdown Center</h2>
+                    <p style="font-size: 20px !important;">"Discover a world of organized knowledge and seamless
+                        information sharing with our Markdown Documentation Center."</p>
+                </div>
+                <div class="component">
+                    <a target="_blank" href="{% url 'academic_peak_markdown' %}">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-dark"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            Markdown Center
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro bg-light">
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 50px !important;" id="modals">Translator</h2>
+                    <p style="font-size: 20px !important;">"Translator, developed by Academic Peak, is your ad-free and
+                        cost-free solution for seamless language communication."</p>
+                </div>
+                <div class="component">
+                    <a target="_blank" href="{% url 'academic_peak_translate' %}">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-dark"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            Translator
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro bg-light">
+    <div style="padding-bottom: 3rem !important;" class="container">
+        <div style="padding-top: 3rem !important;" class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="header">
+                    <h2 style="font-size: 50px !important;" id="modals">AP Academy</h2>
+                    <p style="font-size: 20px !important;">"Assemble online content and online classes. "</p>
+                </div>
+                <div class="component">
+                    <a target="_blank" href="{% url 'academic_peak_academy' %}">
+                        <button style="font-size: 20px !important;" type="button" class="btn btn-dark"
+                                data-toggle="modal" data-target="#glassAnimals">
+                            AP Academy
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-1 bg-light text-dark">
+        <div class="container">
+            <div class="copyright text-center">
+                <hr/>
+                <p class="small">&copy; 2024, Academic Peak</p>
+            </div>
+
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

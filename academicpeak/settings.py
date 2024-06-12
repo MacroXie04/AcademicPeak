@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-blh%=3l$syicz_5v*qnf4y^i8t5e!ornux$bv712st2e-a_v*p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'index',
 
     # Academy
-    'markdown',
-    'academy',
     'translator',
     'university',
 
@@ -65,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'AcademicPeak.urls'
+ROOT_URLCONF = 'academicpeak.urls'
 
 TEMPLATES = [
     {
@@ -83,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'AcademicPeak.wsgi.application'
+WSGI_APPLICATION = 'academicpeak.wsgi.application'
 
 
 # Database
@@ -137,8 +135,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = 'static/'
 # STATIC_ROOT = BASE_DIR / 'static'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -22,6 +22,9 @@ urlpatterns = [
     # index
     path('', include('index.urls')),
 
+    # translator
+    path('translator/', include('translator.urls')),
+
     # university
 
     # markdown

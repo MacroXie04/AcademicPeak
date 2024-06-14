@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Translator - Academic Peak
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'img/Academic Peak Logo web white.svg' %}" alt="Academic Peak Logo">
+            <h1>Translator</h1>
+        </div>
+        
+        <div class="translation-area">
+            <textarea placeholder="The entered text is automatically translated"></textarea>
+            <div class="translation" id="translation">Translation</div>
+        </div>
+    </div>
+{% endblock %}

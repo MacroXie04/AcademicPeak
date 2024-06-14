@@ -4,5 +4,5 @@ from translator import views
 
 urlpatterns = [
     path('', views.index, name='Translator'),
-    path('api/', views.translate, name='translate_api'),
+    # path('api/', views.translate, name='translate_api'),
 ]

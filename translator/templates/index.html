@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Translator - Academic Peak
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/translator.js' %}"></script>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/translate.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'img/Academic Peak Logo web white.svg' %}" alt="Academic Peak Logo">
+            <h1>Translator</h1>
+        </div>
+        <div class="translation-area">
+            <textarea id="inputText" placeholder="Type the text here"></textarea>
+            <div class="translation" id="translation">Translation</div>
+        </div>
+        <div class="control">
+            <div class="translate-button-container">
+                <label class="switch">
+                    <input type="checkbox" id="autoTranslate">
+                    <span class="slider round"></span>
+                </label>
+                <span class="switch-label">AUTO translate</span>
+                <button id="translateButton" disabled>Translate</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

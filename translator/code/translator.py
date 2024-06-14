@@ -1,6 +1,6 @@
 import requests
 import langid
-from AuthV3Util import addAuthParams
+from translator.code.AuthV3Util import addAuthParams
 
 class Translator:
 
@@ -43,7 +43,6 @@ class Translator:
             return requests.get(url, params=params, headers=header)
         elif 'post' == method:
             return requests.post(url, data=params, headers=header)
-
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ class University(models.Model):
 
     # university photo
     photo_url = models.URLField(blank=True)
-    photo = models.ImageField(upload_to='university/photo/', blank=True)
+    photo = models.ImageField(upload_to='university/static/photo/', blank=True)
 
     def __str__(self):
         return self.name

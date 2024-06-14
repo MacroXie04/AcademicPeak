@@ -26,6 +26,7 @@ urlpatterns = [
     path('translator/', include('translator.urls')),
 
     # university
+    path('university/', include('university.urls')),
 
     # markdown
     # path('markdown/', include('markdown.urls')),

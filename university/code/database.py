@@ -1,9 +1,9 @@
 import os
 import django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hongzhe.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'academicpeak.settings')
 django.setup()
 from tabulate import tabulate
-from academicpeak.models import University
+from university.models import University
 import pandas as pd
 
 
@@ -163,12 +163,9 @@ def adjust_university_rank():
     universities = University.objects.all().order_by('university_rank')
 
 
-# 内部调试用
 if __name__ == '__main__':
-    # delete_all_universities()
-    # 设置Excel文件路径
-    # excel_path = r'D:\hongzhe.site\academicpeak\database.xlsx'
-    excel_path = r'C:\PycharmProjects\Academic-Peak\academicpeak\code\database.xlsx'
-    # 读取Excel文件导入数据库
-    import_university_form_excel(excel_path)
-    # print_university()
+    try:
+        excel_path = r''
+        import_university_form_excel(excel_path)
+    except Exception as e:
+        print(f'Error: {e}')

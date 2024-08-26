@@ -16,21 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import include
+from django.urls.conf import include
 
 urlpatterns = [
     # index
     path('', include('index.urls')),
 
+    # ranking
+    path('ranking/', include('ranking.urls')),
+
     # translator
     path('translator/', include('translator.urls')),
 
-    # university
-    path('university/', include('university.urls')),
-
-    # markdown
-    # path('markdown/', include('markdown.urls')),
-
+    # admin
     path('admin/', admin.site.urls),
-
 ]

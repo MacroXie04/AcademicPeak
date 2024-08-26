@@ -1,0 +1,85 @@
+.ranking_card {
+    border: 1px solid #b9cfec;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, .0705882353);
+    height: auto;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #f1f5fb;
+}
+
+
+.left_div {
+    width: 208px;
+    text-align: center;
+    float: left;
+}
+
+
+.rank_square_top {
+    height: 97px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: rgba(213, 226, 244,  0.5);
+}
+
+.rank_square_under {
+    height: 161px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #f1f5fb;
+}
+
+.rank_title {
+    color: #343432;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: inline-block;
+    width: 100%;
+}
+
+.rank_no {
+    color: #1d1d1b;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: redhattext-regular, sans-serif;
+}
+
+.height_1px {
+    display: inline-block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(270deg, rgba(143, 177, 225, 0.12) 1.39%, #8FB1E1 59.43%, rgba(143, 177, 225, 0) 100%);
+    float: left;
+}
+
+.right_div {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 208px);
+    background-color: #fff;
+    padding-top: 10px;
+}
+
+
+.university_details_name {
+    display: inline-block;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.university_details_name img {
+
+}
+
+.university_details_name h1 {
+
+}
+
+
+

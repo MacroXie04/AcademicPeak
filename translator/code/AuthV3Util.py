@@ -19,7 +19,7 @@ import uuid
 def addAuthParams(appKey, appSecret, params):
     q = params.get('q')
     if q is None:
-        q = params.get('img')
+        q = params.get('shared_img')
     salt = str(uuid.uuid1())
     curtime = str(int(time.time()))
     sign = calculateSign(appKey, appSecret, q, salt, curtime)

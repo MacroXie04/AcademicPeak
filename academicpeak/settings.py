@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'ranking',
     'index',
     'translator',
-    'wall',
 
 ]
 

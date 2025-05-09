@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'img/Academic Peak Logo web.svg' %}" rel="icon" type="image/png">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    {% block style %}{% endblock %}
+    <style>
+        @font-face {
+            font-family: 'JetBrainsMono';
+            src: url('{% static 'fonts/JetBrainsMono-Regular.woff2' %}') format('woff2');
+        }
+    </style>
+    <title>{% block title %}{% endblock %}</title>
+    {% block script %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+</body>
+</html>

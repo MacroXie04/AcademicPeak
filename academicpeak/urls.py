@@ -1,31 +1,33 @@
-# the urls.py for academicpeak
+"""
+URL configuration for AcademicPeak project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
 from django.urls import path
-from academicpeak import views
+from django.urls.conf import include
 
 urlpatterns = [
-    # index page
-    path('', views.academic_peak_mainpage, name='academic_peak_mainpage'),
+    # index
+    path('', include('index.urls')),
 
-    # Academic peak World University Ranking 2024
-    path('ranking/', views.academic_peak_university_ranking, name='academic_peak_university_ranking'),
+    # ranking
+    path('ranking/', include('ranking.urls')),
 
-    # Translator
-    path('translate/', views.academic_peak_translate, name='academic_peak_translate'),
+    # translator
+    path('translator/', include('translator.urls')),
 
-    # Markdown center
-    path('markdown/', views.academic_peak_markdown, name="academic_peak_markdown"),
-    path('markdown/<str:md_directory>/', views.academic_peak_markdown_part, name='markdown_part'),
-    path('markdown/<str:md_directory>/<str:md_name>/', views.academic_peak_markdown_reader,
-         name='academic_peak_markdown_reader'),
-
-    path('academy/', views.academic_peak_academy, name='academic_peak_academy'),
-    path('academy/<str:subject>/<str:item_code>/', views.academic_peak_academy_study,
-         name='academic_peak_academy_study'),
-
-    # Other About web pages
-    path('about/', views.academic_peak_about, name='academic_peak_about'),
-    path('fairness/', views.academic_peak_fairness, name='academic_peak_fairness'),
-    path('legal/', views.academic_peak_legal, name='academic_peak_legal'),
-    path('gratitude/', views.academic_peak_gratitude, name='academic_peak_gratitude'),
-
+    # admin
+    path('admin/', admin.site.urls),
 ]

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5#4mqp=qqv=o=cighgu(54u3-ubk30!*s=tm-_y7qt$em6vgn+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://127.0.0.1:8000/', 'http://localhost:8000/','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'AcademicPeak.urls'
+ROOT_URLCONF = 'academicpeak.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'AcademicPeak.wsgi.application'
+WSGI_APPLICATION = 'academicpeak.wsgi.application'
 
 
 # Database
@@ -123,15 +123,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Shared static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'AcademicPeak', 'shared_static'),
+    os.path.join(BASE_DIR, 'academicpeak', 'shared_static'),
     os.path.join(BASE_DIR, 'ranking', 'static'),
-    os.path.join(BASE_DIR, 'index', 'static'),
+    # os.path.join(BASE_DIR, 'index', 'static'),
     os.path.join(BASE_DIR, 'translator', 'static'),
 ]
 

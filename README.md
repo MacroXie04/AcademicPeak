@@ -10,10 +10,6 @@ This is a Django and Python based website, build for academic need.
 | /admin    | Django database management              |
 
 
-
-
-
-
 ## Deploy
 ### Download this project
 > Need Python enviorment, and Django version = 5.0.

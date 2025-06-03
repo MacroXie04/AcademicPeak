@@ -1,0 +1,110 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Login - Academic Peak{% endblock %}
+
+{# ───────── Extra <head> (font + icons + MWC) ───────── #}
+{% block extra_head %}
+    <!-- Minimal centering helper -->
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--md-bg);
+            font-family: Roboto, system-ui, sans-serif;
+            color: var(--md-on-surface)
+        }
+
+        .auth-card {
+            width: clamp(320px, 90vw, 420px);
+            padding: 40px;
+            background: var(--md-surface);
+            border-radius: 24px;
+            box-shadow: 0 6px 24px rgb(0 0 0 /.35);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .auth-card h3 {
+            margin-bottom: 16px;
+            font-weight: 500;
+            text-align: center
+        }
+
+        .err {
+            color: #ffb4ab;
+            font-size: .875rem;
+            margin-top: 4px
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        form md-outlined-text-field {
+            width: 100%;
+        }
+
+        .alt-actions {
+            margin-top: 16px;
+            text-align: center;
+            font-size: .9rem
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="auth-card">
+
+        <h3>Login</h3>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <md-outlined-text-field
+                    name="{{ form.username.name }}"
+                    label="{{ form.username.label }}"
+                    required
+                    value="{{ form.username.value|default_if_none:'' }}"
+                    {% if form.username.errors %}error{% endif %}
+            >
+            </md-outlined-text-field>
+            {% if form.username.errors %}
+                <div class="err">{{ form.username.errors|striptags }}</div>
+            {% endif %}
+
+            <md-outlined-text-field
+                    type="password"
+                    name="{{ form.password.name }}"
+                    label="{{ form.password.label }}"
+                    required
+                    value="{{ form.password.value|default_if_none:'' }}"
+                    {% if form.password.errors %}error{% endif %}
+            >
+            </md-outlined-text-field>
+            {% if form.password.errors %}
+                <div class="err">{{ form.password.errors|striptags }}</div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+                <div class="err">{{ form.non_field_errors|striptags }}</div>
+            {% endif %}
+
+            {# Submit button ────────────────────────────────── #}
+            <md-outlined-button type="submit" style="width:100%;">
+                Login
+            </md-outlined-button>
+        </form>
+
+        <div class="alt-actions">
+            Don’t have an account?
+            <a href="{% url 'webauthn_app:register' %}">Register here</a>
+        </div>
+    </div>
+{% endblock %}

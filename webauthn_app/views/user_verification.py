@@ -3,16 +3,12 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django_ratelimit.decorators import ratelimit
+from django.contrib.auth import logout as django_logout
 from webauthn_app.forms.UserLoginForm import UserLoginForm
 from webauthn_app.forms.UserRegisterForm import UserRegisterForm
 from webauthn_app.models import UserProfile
 
 
-def illegal_request(request):
-    return render(request, 'Illegal_request/reject.html')
-
-@ratelimit(key='ip', rate='5/h', method='POST', block=True)
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST, request.FILES)
@@ -29,16 +25,11 @@ def register(request):
             )
             profile.save()
 
-            # the user is created but not activated
-            # TODO: user disable page
-            # return redirect('user_disable_page')
-            # login(request, user)
-            # return redirect('index')
             return redirect('login')
     else:
         form = UserRegisterForm()
 
-    return render(request, 'register.html', {'form': form})
+    return render(request, '/', {'form': form})
 
 
 @csrf_exempt
@@ -58,11 +49,10 @@ def user_login(request):
     else:
         form = UserLoginForm()
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, '/', {'form': form})
 
 
 @login_required
 def logout(request):
-    from django.contrib.auth import logout as django_logout
     django_logout(request)
     return redirect('index')

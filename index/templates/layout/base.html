@@ -7,8 +7,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- Roboto & Material Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Import Map for Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+    </script>
+
+    <!-- Import Material Web Components -->
+    <script type="module">
+        import '@material/web/all.js';
+        import '@material/web/typography/md-typescale-styles.js';
+
+        // Apply typography styles
+        document.adoptedStyleSheets = [
+            ...document.adoptedStyleSheets,
+            window.MdTypescaleStyles.styleSheet
+        ];
+    </script>
 
     <!-- Style -->
     <style>
@@ -134,6 +155,9 @@
             margin-inline-start: 88px;
             width: 100%;
             padding: 40px 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .hero {
@@ -167,13 +191,6 @@
         }
     </style>
 
-    <script type="module">
-        import 'https://unpkg.com/@material/web@1.0.0/button/filled-button.js';
-        import 'https://unpkg.com/@material/web@1.0.0/list/list.js';
-        import 'https://unpkg.com/@material/web@1.0.0/list/list-item.js';
-        import 'https://unpkg.com/@material/web@1.0.0/textfield/filled-text-field.js';
-    </script>
-
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -181,10 +198,10 @@
 <!-- Side Navigation -->
 <aside class="aside">
 
-{#    <!-- Search Box -->#}
-{#    <a href="#" class="nav-link search-btn" title="Search">#}
-{#        <div class="nav-box"><span class="material-icons">search</span></div>#}
-{#    </a>#}
+    {#    <!-- Search Box -->#}
+    {#    <a href="#" class="nav-link search-btn" title="Search">#}
+    {#        <div class="nav-box"><span class="material-icons">search</span></div>#}
+    {#    </a>#}
 
     <a href="{% url 'index:index' %}"
        class="nav-link {% if active_page == 'ranking' %}active{% endif %}"
@@ -204,7 +221,8 @@
         <span class="nav-label">Ranking</span>
     </a>
 
-    <!-- 推到底部 -->
+
+    <!-- Push to button -->
     <div style="flex:1"></div>
 
     <!-- Toggle Theme -->

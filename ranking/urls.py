@@ -1,14 +1,9 @@
 # the urls.py for ranking
+from .views import index
 from django.urls import path
 from ranking import views
 
+app_name = 'ranking'
 urlpatterns = [
-    path('', views.ranking_index, name='ranking_index'),
-
-    path('search/', views.ranking_search, name='ranking_search'),
-
-    path('ranking/', views.ranking_ranking, name='ranking_ranking'),
-
-
-
+    path('', index.ranking_index, name='ranking_index'),
 ]

@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # frontend framework app
+    'rest_framework',
+
     # installed app
     'ranking',
     'index',
-    'translator',
-
+    'theia_ide',
 ]
 
 MIDDLEWARE = [
@@ -130,8 +132,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'academicpeak', 'shared_static'),
     os.path.join(BASE_DIR, 'ranking', 'static'),
-    # os.path.join(BASE_DIR, 'index', 'static'),
-    os.path.join(BASE_DIR, 'translator', 'static'),
+    os.path.join(BASE_DIR, 'index', 'static'),
+    os.path.join(BASE_DIR, 'theia_ide', 'static'),
 ]
 
 

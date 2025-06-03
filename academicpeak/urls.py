@@ -25,8 +25,8 @@ urlpatterns = [
     # ranking
     path('ranking/', include('ranking.urls')),
 
-    # translator
-    path('translator/', include('translator.urls')),
+    # markdown
+    #TODO: add markdown app
 
     # admin
     path('admin/', admin.site.urls),

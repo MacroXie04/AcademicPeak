@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Material Web App{% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Roboto & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- ================= 全局样式 & 主题变量 ================= -->
+    <style>
+        /* ——— Dark / Light tokens ——— */
+        :root {
+            --md-primary: #9F7BFF;
+            --md-on-primary: #000;
+            --md-bg: #121212;
+            --md-surface: #1C1B1F;
+            --md-on-surface: #E6E1E5;
+            color-scheme: dark;
+        }
+
+        html.light {
+            --md-primary: #6750A4;
+            --md-on-primary: #fff;
+            --md-bg: #ffffff;
+            --md-surface: #F5F5F7;
+            --md-on-surface: #1C1B1F;
+            color-scheme: light;
+        }
+
+        /* ——— Reset & 基础排版 ——— */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: Roboto, system-ui, sans-serif;
+            background: var(--md-bg);
+            color: var(--md-on-surface);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========== 侧边栏 (Google‑Fonts Icons 风格) ========== */
+        .aside {
+            position: fixed;
+            inset: 0 0 0 0;
+            width: 88px;
+            background: var(--md-surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 28px;
+            overflow-y: auto;
+        }
+
+        /* 通用按钮 */
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-block: 12px;
+            text-decoration: none;
+        }
+
+        .nav-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .15s background;
+        }
+
+        .nav-box .material-icons {
+            font-size: 28px;
+            color: var(--md-on-surface);
+        }
+
+        /* 悬停：灰色圆框 */
+        .nav-link:not(.active):hover .nav-box {
+            background: #424242;
+        }
+
+        /* 激活：紫色圆框 + 文字隐藏 */
+        .nav-link.active .nav-box {
+            background: var(--md-primary);
+        }
+
+        .nav-link.active .material-icons {
+            color: var(--md-on-primary);
+        }
+
+        .nav-link.active .nav-label {
+            display: none;
+        }
+
+        /* 搜索特型按钮 */
+        .search-btn .nav-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: #5E477B;
+            margin-bottom: 36px;
+        }
+
+        .search-btn .material-icons {
+            font-size: 32px;
+            color: #fff
+        }
+
+        /* 底部小按钮 */
+        .mode-toggle, .feedback-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-block: 10px;
+            cursor: pointer;
+            color: var(--md-on-surface);
+            transition: .15s background;
+        }
+
+        .mode-toggle:hover, .feedback-btn:hover {
+            background: #424242
+        }
+
+        .mode-toggle .material-icons,
+        .feedback-btn .material-icons {
+            font-size: 24px
+        }
+
+        /* ========== 主内容区 ========== */
+        main {
+            margin-inline-start: 88px;
+            width: 100%;
+            padding: 40px 48px;
+        }
+
+        /* 示例 hero 样式（可被子模板替换） */
+        .hero {
+            display: flex;
+            gap: 48px;
+            background: var(--md-surface);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            max-width: 42ch
+        }
+
+        .hero img {
+            width: 320px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover
+        }
+    </style>
+
+    <!-- Material Web 组件 -->
+    <script type="module">
+        import 'https://unpkg.com/@material/web@1.0.0/button/filled-button.js';
+        import 'https://unpkg.com/@material/web@1.0.0/list/list.js';
+        import 'https://unpkg.com/@material/web@1.0.0/list/list-item.js';
+        import 'https://unpkg.com/@material/web@1.0.0/textfield/filled-text-field.js';
+    </script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- =============== Side Navigation =============== -->
+<aside class="aside">
+
+    <!-- 搜索 -->
+    <a href="#" class="nav-link search-btn" title="Search">
+        <div class="nav-box"><span class="material-icons">search</span></div>
+    </a>
+
+    <!-- 主功能 -->
+    {#    {% regroup [#}
+    {#    ('index', 'index', 'index'),#}
+    {#    ('ranking', 'bar_chart', 'Ranking'),#}
+    {#    ('toolbox', 'build', 'Tools'),#}
+    {#    ('markdown', 'description','Markdown'),#}
+    {#    ('account', 'person', 'Account')#}
+    {#    ] by 0 as nav %}#}
+    {#    {% for slug, icon, title in nav.list %}#}
+    {#        <a href="{% url slug %}"#}
+    {#           class="nav-link {% if active_page == slug %}active{% endif %}"#}
+    {#           title="{{ title }}">#}
+    {#            <div class="nav-box"><span class="material-icons">{{ icon }}</span></div>#}
+    {#        </a>#}
+    {#    {% endfor %}#}
+
+    <a href="{% url 'index:index' %}"
+       class="nav-link {% if active_page == 'ranking' %}active{% endif %}"
+       title="Ranking">
+        <div class="nav-box">
+            <span class="material-icons">home</span>
+        </div>
+        <span class="nav-label">index</span>
+    </a>
+
+    <a href="{% url 'ranking:ranking_index' %}"
+       class="nav-link {% if active_page == 'ranking' %}active{% endif %}"
+       title="Ranking">
+        <div class="nav-box">
+            <span class="material-icons">bar_chart</span>
+        </div>
+        <span class="nav-label">Ranking</span>
+    </a>
+
+    <!-- 推到底部 -->
+    <div style="flex:1"></div>
+
+    <!-- Toggle Theme -->
+    <div class="mode-toggle" title="Toggle light / dark"
+         onclick="
+         const html=document.documentElement;
+         html.classList.toggle('light');
+         this.querySelector('span').textContent =
+           html.classList.contains('light') ? 'dark_mode' : 'light_mode';
+       ">
+        <span class="material-icons">light_mode</span>
+    </div>
+</aside>
+
+<!-- =============== Main Content =============== -->
+<main>
+    {% block content %}
+        <section class="hero">
+            <div>
+                <h1>Material Design</h1>
+                <p>Material Design 3 is Google’s open‑source design system for building beautiful, usable products.</p>
+                <md-filled-button onclick="alert('Get Started!')">Get started</md-filled-button>
+            </div>
+            <img src="https://picsum.photos/seed/md/800/600" alt="Hero">
+        </section>
+    {% endblock %}
+</main>
+
+</body>
+</html>

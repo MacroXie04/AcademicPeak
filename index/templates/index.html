@@ -1,13 +1,207 @@
 {% extends "layout/base.html" %}
-{% block title %}Home · Material Web{% endblock %}
+{% load static %}
+{% block title %}Academic Peak - Home{% endblock %}
+
+{% block extra_head %}
+<style>
+    .announcements {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    .announcement-card {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .top-rankings {
+        margin-top: 48px;
+    }
+
+    .ranking-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .section-title .material-icons {
+        color: var(--md-primary);
+    }
+
+    /* Ensure accessibility - focus styles */
+    md-filled-button:focus-visible,
+    md-outlined-button:focus-visible,
+    md-text-button:focus-visible,
+    md-elevated-card:focus-visible,
+    md-chip:focus-visible {
+        outline: 2px solid var(--md-primary);
+        outline-offset: 2px;
+    }
+
+    /* High contrast mode support */
+    @media (forced-colors: active) {
+        md-filled-button, 
+        md-outlined-button,
+        md-text-button {
+            border: 1px solid currentColor;
+        }
+    }
+
+    /* Ensure sufficient color contrast */
+    .md-headline-small,
+    .md-headline-medium,
+    .md-title-medium,
+    .md-body-medium,
+    .md-body-small,
+    .md-label-large {
+        color: var(--md-on-surface);
+    }
+</style>
+
+<script type="module">
+    // Fetch data from API when page loads
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            // Fetch main page data
+            const mainResponse = await fetch('/api/v1/index/main/');
+            const mainData = await mainResponse.json();
+
+            // Display announcements
+            const announcements = mainData.featured_announcements;
+            const announcementsContainer = document.querySelector('.announcements');
+
+            if (announcements.length > 0) {
+                announcementsContainer.innerHTML = '';
+
+                announcements.forEach(announcement => {
+                    const card = document.createElement('md-elevated-card');
+                    card.className = 'announcement-card';
+
+                    const priority = announcement.priority;
+                    let priorityColor = '';
+
+                    switch(priority) {
+                        case 'urgent':
+                            priorityColor = 'var(--md-sys-color-error)';
+                            break;
+                        case 'high':
+                            priorityColor = 'var(--md-sys-color-error-container)';
+                            break;
+                        case 'medium':
+                            priorityColor = 'var(--md-sys-color-primary)';
+                            break;
+                        default:
+                            priorityColor = 'var(--md-sys-color-secondary)';
+                    }
+
+                    card.innerHTML = `
+                        <div style="padding: 16px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <h3 class="md-headline-small">${announcement.title}</h3>
+                                <md-chip style="background-color: ${priorityColor};">${priority}</md-chip>
+                            </div>
+                            <p class="md-body-medium">${announcement.content}</p>
+                            <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+                                <md-text-button>Read more</md-text-button>
+                            </div>
+                        </div>
+                    `;
+
+                    announcementsContainer.appendChild(card);
+                });
+            }
+
+            // Fetch top rated items
+            const rankingResponse = await fetch(mainData.top_rated_items_url);
+            const rankingData = await rankingResponse.json();
+
+            // Display top rated items
+            const rankingList = document.querySelector('.ranking-list');
+
+            if (rankingData.length > 0) {
+                rankingList.innerHTML = '';
+
+                rankingData.forEach(item => {
+                    const card = document.createElement('md-elevated-card');
+                    card.style.height = '100%';
+
+                    card.innerHTML = `
+                        <div style="padding: 16px; height: 100%; display: flex; flex-direction: column;">
+                            <h3 class="md-title-medium">${item.title}</h3>
+                            <p class="md-body-small" style="margin: 8px 0; flex-grow: 1;">${item.description.substring(0, 100)}${item.description.length > 100 ? '...' : ''}</p>
+                            <div style="display: flex; align-items: center; margin-top: 8px;">
+                                <span class="material-icons" style="color: gold; margin-right: 4px;">star</span>
+                                <span class="md-label-large">${item.avg_score} (${item.score_count} ratings)</span>
+                            </div>
+                            <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+                                <md-text-button>View details</md-text-button>
+                            </div>
+                        </div>
+                    `;
+
+                    rankingList.appendChild(card);
+                });
+            }
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+</script>
+{% endblock %}
 
 {% block content %}
     <section class="hero">
         <div>
-            <h1>Material Design</h1>
-            <p>Material Design 3 is Google’s open‑source design system for building beautiful, usable products.</p>
-            <md-outlined-button onclick="alert('Get Started!')">Get started</md-outlined-button>
+            <h1>Academic Peak</h1>
+            <p>Your platform for academic excellence, featuring rankings, secure authentication, and an integrated development environment.</p>
+            <div style="display: flex; gap: 12px;">
+                <md-filled-button href="{% url 'ranking:ranking_index' %}">Explore Rankings</md-filled-button>
+                <md-outlined-button href="{% url 'webauthn_app:login' %}">Sign In</md-outlined-button>
+            </div>
         </div>
-        <img src="https://picsum.photos/seed/md/800/600" alt="Hero">
+        <img src="{% static 'shared_img/Academic Peak Logo web.svg' %}" alt="Academic Peak Logo">
+    </section>
+
+    <!-- Featured Announcements -->
+    <section>
+        <div class="section-title">
+            <span class="material-icons">campaign</span>
+            <h2 class="md-headline-medium">Featured Announcements</h2>
+        </div>
+        <div class="announcements">
+            <md-elevated-card class="announcement-card">
+                <div style="padding: 16px;">
+                    <h3 class="md-headline-small">Loading announcements...</h3>
+                    <p class="md-body-medium">Please wait while we fetch the latest announcements.</p>
+                </div>
+            </md-elevated-card>
+        </div>
+    </section>
+
+    <!-- Top Rankings -->
+    <section class="top-rankings">
+        <div class="section-title">
+            <span class="material-icons">leaderboard</span>
+            <h2 class="md-headline-medium">Top Rated Items</h2>
+        </div>
+        <div class="ranking-list">
+            <md-elevated-card>
+                <div style="padding: 16px;">
+                    <h3 class="md-title-medium">Loading top rated items...</h3>
+                    <p class="md-body-small">Please wait while we fetch the top rated items.</p>
+                </div>
+            </md-elevated-card>
+        </div>
     </section>
 {% endblock %}

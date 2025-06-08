@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # index
@@ -25,9 +27,19 @@ urlpatterns = [
     # ranking
     path('ranking/', include('ranking.urls')),
 
+    # webauthn
+    path('webauthn/', include('webauthn_app.urls')),
+
+    # API endpoints with versioning
+    path('api/', include('academicpeak.api_urls')),
+
     # markdown
     #TODO: add markdown app
 
     # admin
     path('admin/', admin.site.urls),
 ]
+
+# Add static and media URL patterns in development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

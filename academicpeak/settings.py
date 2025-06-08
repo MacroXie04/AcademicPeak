@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'ranking',
     'index',
     'theia_ide',
+    'webauthn_app',
 ]
 
 MIDDLEWARE = [

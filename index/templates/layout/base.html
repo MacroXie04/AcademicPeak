@@ -221,6 +221,23 @@
         <span class="nav-label">Ranking</span>
     </a>
 
+    <a href="{% url 'webauthn_app:login' %}"
+       class="nav-link {% if active_page == 'webauthn' %}active{% endif %}"
+       title="Login/Register">
+        <div class="nav-box">
+            <span class="material-icons">fingerprint</span>
+        </div>
+        <span class="nav-label">Login</span>
+    </a>
+
+    <a href="/theia/"
+       class="nav-link {% if active_page == 'theia' %}active{% endif %}"
+       title="My IDE">
+        <div class="nav-box">
+            <span class="material-icons">code</span>
+        </div>
+        <span class="nav-label">My IDE</span>
+    </a>
 
     <!-- Push to button -->
     <div style="flex:1"></div>

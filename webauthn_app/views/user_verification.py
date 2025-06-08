@@ -33,7 +33,6 @@ def register(request):
 
 
 @csrf_exempt
-@ratelimit(key='ip', rate='10/m', method='POST', block=True)
 def user_login(request):
     if request.method == 'POST':
         form = UserLoginForm(request, data=request.POST)

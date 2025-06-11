@@ -1,0 +1,236 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Material Design{% endblock %}
+
+{% block style %}
+/* 重置和基础设定 */
+body {
+    margin: 0;
+    background-color: #141218;
+    color: #E6E1E5;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* --- 侧边栏 --- */
+.sidebar {
+    width: 256px;
+    height: 100vh;
+    background-color: #1E192B; /* 侧边栏背景色 */
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar-top, .sidebar-bottom {
+    padding: 16px;
+}
+.sidebar-top .material-symbols-outlined {
+    font-size: 28px;
+}
+
+.sidebar nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    height: 56px;
+    border-radius: 28px;
+    text-decoration: none;
+    color: #CAC4D0; /* 未激活文字颜色 */
+    font-size: 14px;
+    font-weight: 500;
+}
+.sidebar nav a .material-symbols-outlined {
+    font-size: 24px;
+    color: #CAC4D0; /* 未激活图标颜色 */
+}
+.sidebar nav a.active {
+    background-color: #4A4458; /* 激活背景色 */
+    color: #E8DEF8; /* 激活文字颜色 */
+}
+.sidebar nav a.active .material-symbols-outlined {
+    color: #E8DEF8; /* 激活图标颜色 */
+}
+
+
+/* --- 主内容区 --- */
+.main-container {
+    margin-left: 256px; /* 侧边栏宽度 */
+    width: calc(100% - 256px);
+    padding: 48px 64px;
+    box-sizing: border-box;
+}
+
+/* --- 顶部 Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    min-height: 500px;
+}
+.hero-text {
+    flex-basis: 40%;
+}
+.hero-text h1 {
+    font-size: 5rem; /* 80px */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 24px 0;
+    letter-spacing: -1px;
+}
+.hero-text p {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.6;
+    max-width: 480px;
+    color: #CAC4D0;
+    margin-bottom: 32px;
+}
+
+/* “Get started” 按钮 */
+.hero-text md-filled-button {
+    --md-filled-button-container-color: #D0BCFF;
+    --md-filled-button-label-text-color: #381E72;
+    --md-filled-button-large-label-text-size: 18px;
+    height: 56px;
+}
+
+/* 右侧图片展示 */
+.hero-images {
+    flex-grow: 1;
+    /* 这个部分为了演示，用一个背景图代替复杂的图片拼贴 */
+    /* 在实际项目中，您需要将所有小图拼接起来 */
+    background-image: url('https://i.imgur.com/kGcp602.png'); /* 使用截图的一部分作为背景 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 500px;
+    opacity: 0.9;
+}
+
+
+/* --- M3 Expressive Section --- */
+.expressive-section {
+    margin-top: 120px;
+}
+.expressive-section h2 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.expressive-section p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 720px;
+    color: #CAC4D0;
+    margin-bottom: 48px;
+}
+.expressive-section p a {
+    color: #A8C7FA; /* 蓝色链接 */
+    text-decoration: none;
+}
+.expressive-section p a:hover {
+    text-decoration: underline;
+}
+
+/* M3 特性预览卡片 */
+.previews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+.preview-card {
+    height: 250px;
+    background-color: #262330;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #938F99;
+}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="sidebar">
+    <div class="sidebar-top">
+        <span class="material-symbols-outlined">view_quilt</span>
+    </div>
+
+    <nav>
+        <a href="#" class="active">
+            <span class="material-symbols-outlined">home</span>
+            Home
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Get started
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">code</span>
+            Develop
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">layers</span>
+            Foundations
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">palette</span>
+            Styles
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">widgets</span>
+            Components
+        </a>
+        <a href="#">
+            <span class="material-symbols-outlined">article</span>
+            Blog
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <span class="material-symbols-outlined">play_circle</span>
+        <span class="material-symbols-outlined" style="margin-left:12px;">settings</span>
+    </div>
+</div>
+
+<main class="main-container">
+
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Material Design</h1>
+            <p>Material Design 3 is Google’s open-source design system for building beautiful, usable products.</p>
+            <md-filled-button large>Get started</md-filled-button>
+        </div>
+        <div class="hero-images">
+            </div>
+    </section>
+
+    <section class="expressive-section">
+        <h2>M3 Expressive: Design with emotion</h2>
+        <p>
+            Build more usable and engaging products with emotion-driven UX. M3 Expressive adds vibrant <a href="#">colors</a>, intuitive <a href="#">motion</a>, adaptive <a href="#">components</a>, flexible <a href="#">typography</a>, and contrasting <a href="#">shapes</a>.
+        </p>
+        <div class="previews-grid">
+            <div class="preview-card">Preview Placeholder 1</div>
+            <div class="preview-card">Preview Placeholder 2</div>
+            <div class="preview-card">Preview Placeholder 3</div>
+            </div>
+    </section>
+
+</main>
+
+{% endblock %}

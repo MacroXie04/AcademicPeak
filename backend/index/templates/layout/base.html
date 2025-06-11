@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Charset & viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Optional: let the OS know your page supports both themes -->
+    <meta name="color-scheme" content="light dark">
+
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+
+    <!-- Roboto + Material Symbols fonts (recommended by Material 3) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Import-map that points every @material/web/* import to the CDN -->
+    <script type="importmap">
+        {
+          "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+          }
+        }
+    </script>
+
+    <!-- 3 . “Bootstrap” module: registers all Material 3 components + typography sheet -->
+    <script type="module">
+        // Load every component (swap for granular imports in production)
+        import '@material/web/all.js';
+
+        // Optional but handy: push the Material typographic scale into the page
+        import {styles as typeStyles} from '@material/web/typography/md-typescale-styles.js';
+
+        document.adoptedStyleSheets.push(typeStyles.styleSheet);
+
+        // Example: set primary / secondary tones (CSS custom properties)
+        const theme = document.documentElement.style;
+        theme.setProperty('--md-sys-color-primary', '#6750A4');   // light theme
+        theme.setProperty('--md-sys-color-on-primary', '#FFFFFF');
+        theme.setProperty('--md-sys-color-primary-dark', '#D0BCFF');  // dark theme
+    </script>
+
+    <title>{% block title %}Academic Peak{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

@@ -172,5 +172,3 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-/mobileid/migrations/
-/webauthn_app/migrations/

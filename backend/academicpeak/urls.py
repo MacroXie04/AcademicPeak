@@ -30,9 +30,6 @@ urlpatterns = [
     # webauthn
     path('webauthn/', include('webauthn_app.urls')),
 
-    # API endpoints with versioning
-    path('api/', include('academicpeak.api_urls')),
-
     # markdown
     #TODO: add markdown app
 

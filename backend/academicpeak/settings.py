@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-5#4mqp=qqv=o=cighgu(54u3-ubk30!*s=tm-_y7qt$em6vgn+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# project API version
+API_VERSION = 'v1'
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     'index',
     'theia_ide',
     'webauthn_app',
+    'readLog.apps.ReadlogConfig'
 ]
 
 MIDDLEWARE = [

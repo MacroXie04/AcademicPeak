@@ -1,3 +1,1 @@
-from .subject import *
-from .unit import *
-
+from .admin import *  # noqa: F401,F403

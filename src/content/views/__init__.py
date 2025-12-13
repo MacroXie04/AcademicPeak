@@ -1,3 +1,3 @@
-from .subject import SubjectViewSet
-from .unit import UnitViewSet
+from .views import MenuViewSet, PageViewSet
 
+__all__ = ["MenuViewSet", "PageViewSet"]

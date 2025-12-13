@@ -1,3 +1,3 @@
-from .subject import Subject
-from .unit import Unit
+from .models import Menu, Page
 
+__all__ = ["Menu", "Page"]

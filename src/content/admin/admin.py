@@ -22,3 +22,4 @@ class PageAdmin(admin.ModelAdmin):
     list_filter = ('menu', 'created_at')
     search_fields = ('title', 'slug', 'content')
     prepopulated_fields = {'slug': ('title',)}
+

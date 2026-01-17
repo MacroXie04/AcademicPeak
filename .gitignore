@@ -77,3 +77,6 @@ coverage/
 htmlcov/
 .pytest_cache/
 
+# Claude Code
+CLAUDE.md
+CLAUDE_PROMPT.md

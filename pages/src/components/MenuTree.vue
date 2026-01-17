@@ -20,16 +20,15 @@ const openItems = ref(new Set());
 const router = useRouter();
 
 const toggle = (item) => {
-  // Always toggle if it has children OR pages
   const hasContent = (item.children && item.children.length > 0) || (item.pages && item.pages.length > 0);
-  
-  if (hasContent) {
-    if (openItems.value.has(item.id)) {
-      openItems.value.delete(item.id);
-    } else {
-      openItems.value.add(item.id);
-    }
+  if (!hasContent) return;
+  const next = new Set(openItems.value);
+  if (next.has(item.id)) {
+    next.delete(item.id);
+  } else {
+    next.add(item.id);
   }
+  openItems.value = next;
 };
 
 const navTo = (slug) => {
@@ -86,13 +85,17 @@ const hasSubItems = (item) => (item.children && item.children.length > 0) || (it
 }
 .nested-menu {
   padding-left: 12px; 
+  border-left: 1px solid var(--md-sys-color-outline-variant);
+  margin-left: 4px;
 }
 .menu-item {
   cursor: pointer;
   background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-small);
 }
 .page-item {
   cursor: pointer;
+  border-radius: var(--md-sys-shape-corner-small);
 }
 .active {
   background-color: var(--md-sys-color-secondary-container);

@@ -31,3 +31,4 @@ class PageViewSet(viewsets.ReadOnlyModelViewSet):
             # for now just direct match or basic filter
             queryset = queryset.filter(menu_id=menu_id)
         return queryset
+

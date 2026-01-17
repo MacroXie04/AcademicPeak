@@ -1,38 +1,36 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import '@material/web/tabs/primary-tab.js';
-import '@material/web/tabs/tabs.js';
+import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
 
-const props = defineProps({
-  menus: {
-    type: Array,
-    default: () => []
+defineProps({
+  title: {
+    type: String,
+    default: 'SkillLoop'
+  },
+  subtitle: {
+    type: String,
+    default: 'Learn with Material Web'
   }
 });
-
-const router = useRouter();
-
-const emit = defineEmits(['select']);
-
-const onTabChange = (event) => {
-  // event.target.activeTabIndex is the index
-  const index = event.target.activeTabIndex;
-  if (props.menus[index]) {
-    emit('select', props.menus[index].id);
-  }
-};
 </script>
 
 <template>
-  <header class="app-header">
-    <div class="logo">SkillLoop</div>
-    <md-tabs @change="onTabChange">
-      <md-primary-tab 
-        v-for="menu in menus" 
-        :key="menu.id"
-        :label="menu.name"
-      ></md-primary-tab>
-    </md-tabs>
+  <header class="app-header surface">
+    <div class="title-block">
+      <div class="title">{{ title }}</div>
+      <div class="subtitle">{{ subtitle }}</div>
+    </div>
+    <div class="actions">
+      <md-icon-button aria-label="search">
+        <md-icon>search</md-icon>
+      </md-icon-button>
+      <md-icon-button aria-label="notifications">
+        <md-icon>notifications</md-icon>
+      </md-icon-button>
+      <md-icon-button aria-label="account">
+        <md-icon>account_circle</md-icon>
+      </md-icon-button>
+    </div>
   </header>
 </template>
 
@@ -40,14 +38,32 @@ const onTabChange = (event) => {
 .app-header {
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  background: var(--md-sys-color-surface);
+  justify-content: space-between;
+  padding: 24px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  backdrop-filter: blur(6px);
 }
-.logo {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-right: 24px;
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font: var(--md-sys-typescale-title-large);
+}
+
+.subtitle {
+  font: var(--md-sys-typescale-body-small);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
 }
 </style>
-

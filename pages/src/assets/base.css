@@ -1,53 +1,55 @@
-/* color palette from <https://github.com/vuejs/theme> */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --md-icon-font: 'Material Symbols Outlined';
+  --md-sys-typescale-display-large: 57px/64px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-display-medium: 45px/52px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-display-small: 36px/44px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-headline-large: 32px/40px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-headline-medium: 28px/36px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-headline-small: 24px/32px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-title-large: 22px/28px 500 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-title-medium: 16px/24px 500 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-title-small: 14px/20px 500 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-body-large: 16px/24px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-body-medium: 14px/20px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-body-small: 12px/16px 400 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-label-large: 14px/20px 500 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-label-medium: 12px/16px 500 'Roboto', system-ui, -apple-system, sans-serif;
+  --md-sys-typescale-label-small: 11px/16px 500 'Roboto', system-ui, -apple-system, sans-serif;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --md-sys-shape-corner-extra-small: 8px;
+  --md-sys-shape-corner-small: 12px;
+  --md-sys-shape-corner-medium: 16px;
+  --md-sys-shape-corner-large: 24px;
+  --md-sys-shape-corner-full: 999px;
 
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
-
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
+  --md-sys-color-primary: #c7b7ff;
+  --md-sys-color-on-primary: #211042;
+  --md-sys-color-primary-container: #3c2c73;
+  --md-sys-color-on-primary-container: #e8ddff;
+  --md-sys-color-secondary: #ffb74d;
+  --md-sys-color-on-secondary: #2a1600;
+  --md-sys-color-secondary-container: #422608;
+  --md-sys-color-on-secondary-container: #ffddb0;
+  --md-sys-color-tertiary: #ff7ad0;
+  --md-sys-color-on-tertiary: #3d0026;
+  --md-sys-color-tertiary-container: #5b1b40;
+  --md-sys-color-on-tertiary-container: #ffd8e9;
+  --md-sys-color-background: #0e0f12;
+  --md-sys-color-on-background: #e8ecf5;
+  --md-sys-color-surface: #12141a;
+  --md-sys-color-surface-variant: #1c1f27;
+  --md-sys-color-surface-container-low: #151821;
+  --md-sys-color-surface-container: #1a1e28;
+  --md-sys-color-surface-container-high: #202533;
+  --md-sys-color-outline: #313645;
+  --md-sys-color-outline-variant: #2a303d;
+  --md-sys-color-on-surface: #e5e8ec;
+  --md-sys-color-on-surface-variant: #c2c7d1;
+  --md-elevation-level1: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  --md-elevation-level2: 0px 4px 10px rgba(0, 0, 0, 0.35);
 }
 
 *,
@@ -55,32 +57,39 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
 }
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  color: var(--md-sys-color-on-background);
+  background: radial-gradient(circle at 20% 20%, rgba(255, 122, 208, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(199, 183, 255, 0.14), transparent 32%),
+    radial-gradient(circle at 50% 80%, rgba(255, 183, 77, 0.12), transparent 36%),
+    var(--md-sys-color-background);
+  margin: 0;
   line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+md-icon {
+  --md-icon-font: 'Material Symbols Outlined';
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
 }
